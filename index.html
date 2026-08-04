@@ -5,1096 +5,541 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hablemos de Automovilismo — Noticias de Carreras</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #1c1b19;
-    --surface: #242220;
-    --surface-2: #2e2b27;
-    --surface-3: #38342f;
-    --text: #f3efe6;
-    --text-dim: #a8a29a;
-    --text-faint: #726c63;
-    --amber: #ffb800;
-    --amber-dim: #7a5c05;
-    --green: #4c9169;
-    --line: rgba(243,239,230,0.12);
-    --line-strong: rgba(243,239,230,0.22);
-    --radius: 2px;
+    --bg:#f2f3f4;
+    --surface:#ffffff;
+    --border:#e3e5e8;
+    --border-strong:#ccd0d5;
+    --text:#1b1c1e;
+    --text-dim:#5c5f64;
+    --text-faint:#8d9095;
+    --blue:#2f6fa8;
+    --blue-dark:#25578a;
+    --red:#c94436;
+    --red-dark:#a8382c;
+    --green:#4c8c5f;
+    --green-dark:#3c704c;
+    --amber:#c9862c;
+    --amber-dark:#a76e22;
+    --shadow:0 1px 2px rgba(20,20,20,0.06);
   }
-
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
-  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition-duration:0.01ms !important;} }
+  body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--blue); color:#fff; }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  .tab-font{ font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.03em; }
+  .wrap{ max-width:1280px; margin:0 auto; padding:0 clamp(1rem,3vw,2rem); }
 
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Inter', sans-serif;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
+  /* ---------- UTILITY BAR ---------- */
+  .util-bar{
+    background:var(--surface);
+    border-bottom:1px solid var(--border);
+    font-size:0.8rem;
   }
-
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-
-  ::selection{ background:var(--amber); color:#1c1b19; }
-
-  :focus-visible{
-    outline: 2px solid var(--amber);
-    outline-offset: 3px;
+  .util-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0.5rem 0; gap:1rem; flex-wrap:wrap;
   }
-
-  .display{
-    font-family:'Teko', sans-serif;
-    font-weight:600;
-    letter-spacing: 0.01em;
-    text-transform:uppercase;
-    line-height:0.92;
+  .social-strip{ display:flex; align-items:center; gap:1.1rem; }
+  .social-strip a{
+    display:flex; align-items:center; gap:0.4rem;
+    color:var(--text-dim); font-size:0.78rem; font-weight:500;
+    transition:color 0.15s;
   }
-
-  .mono{
-    font-family:'JetBrains Mono', monospace;
+  .social-strip a:hover{ color:var(--blue); }
+  .social-strip svg{ width:16px; height:16px; fill:currentColor; flex-shrink:0; }
+  .search-box{
+    display:flex; align-items:center; gap:0.4rem;
+    background:var(--bg); border:1px solid var(--border-strong);
+    border-radius:3px; padding:0.35rem 0.6rem; min-width:200px;
   }
-
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.7rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--amber);
-    display:flex;
-    align-items:center;
-    gap:0.5rem;
+  .search-box input{
+    border:none; background:transparent; outline:none;
+    font-family:'Inter',sans-serif; font-size:0.82rem; width:100%; color:var(--text);
   }
-  .eyebrow::before{
-    content:"";
-    width:6px; height:6px;
-    background:var(--amber);
-    border-radius:50%;
-    flex-shrink:0;
-  }
-
-  .wrap{
-    max-width:1280px;
-    margin:0 auto;
-    padding:0 clamp(1rem, 3vw, 2.5rem);
-  }
-
-  /* ---------- TICKER ---------- */
-  .ticker-bar{
-    background:#000;
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
-    white-space:nowrap;
-    position:relative;
-  }
-  .ticker-bar::after{
-    content:"";
-    position:absolute; inset:0;
-    pointer-events:none;
-    background:linear-gradient(90deg, #000 0%, transparent 4%, transparent 96%, #000 100%);
-  }
-  .ticker-track{
-    display:inline-flex;
-    align-items:center;
-    animation: scroll-left 38s linear infinite;
-    padding:0.5rem 0;
-  }
-  @keyframes scroll-left{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
-  }
-  .ticker-item{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.72rem;
-    color:var(--text-dim);
-    padding:0 1.5rem;
-    border-right:1px solid var(--line);
-    display:inline-flex;
-    gap:0.6rem;
-  }
-  .ticker-item b{ color:var(--amber); font-weight:700;}
-  .ticker-item .gap{ color:var(--text-faint); }
+  .search-box svg{ width:14px; height:14px; fill:var(--text-faint); flex-shrink:0; }
 
   /* ---------- HEADER ---------- */
-  header.site{
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
-    position:sticky;
-    top:0;
-    z-index:50;
+  header.site{ background:var(--surface); border-bottom:1px solid var(--border); }
+  .header-row{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1.5rem; padding:1rem 0;
   }
-  .nav-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0.9rem 0;
-    gap:1.5rem;
+  .logo{ display:flex; align-items:center; gap:0.6rem; flex-shrink:0; }
+  .logo svg{ width:40px; height:40px; flex-shrink:0; }
+  .logo-text .name{
+    font-family:'Oswald', sans-serif; font-weight:700; font-size:1.35rem;
+    letter-spacing:0.01em; color:var(--text); text-transform:uppercase; line-height:1.05;
   }
-  .logo{
-    display:flex;
-    align-items:baseline;
-    gap:0.35rem;
-    flex-shrink:0;
-  }
-  .logo .mark{
-    font-family:'Teko', sans-serif;
-    font-weight:700;
-    font-size:2rem;
-    letter-spacing:0.02em;
-    color:var(--text);
-  }
-  .logo .mark span{ color:var(--amber); }
-  .logo .sub{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.6rem;
-    color:var(--text-faint);
-    letter-spacing:0.1em;
-    align-self:flex-end;
-    padding-bottom:0.35rem;
-  }
-  nav.main{
-    display:flex;
-    gap:2rem;
-  }
-  nav.main a{
-    font-size:0.85rem;
-    font-weight:600;
-    color:var(--text-dim);
-    letter-spacing:0.02em;
-    padding:0.3rem 0;
-    border-bottom:2px solid transparent;
-    transition:color 0.15s, border-color 0.15s;
-  }
-  nav.main a:hover, nav.main a:focus-visible{
-    color:var(--text);
-    border-color:var(--amber);
-  }
-  .nav-extra{
-    display:flex;
-    align-items:center;
-    gap:1rem;
-  }
-  .btn-live{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.68rem;
-    letter-spacing:0.08em;
-    color:#1c1b19;
-    background:var(--amber);
-    padding:0.4rem 0.7rem;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:0.4rem;
-  }
-  .btn-live .dot{
-    width:6px; height:6px;
-    background:#1c1b19;
-    border-radius:50%;
-    animation:pulse 1.4s ease-in-out infinite;
-  }
-  @keyframes pulse{
-    0%,100%{ opacity:1; }
-    50%{ opacity:0.3; }
-  }
-  .btn-cart{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:38px; height:38px;
-    border:1px solid var(--line-strong);
-    color:var(--text-dim);
-    transition:border-color 0.15s, color 0.15s;
-  }
-  .btn-cart svg{ width:19px; height:19px; }
-  .btn-cart:hover{ border-color:var(--amber); color:var(--amber); }
-  .cart-count{
-    position:absolute;
-    top:-7px; right:-7px;
-    background:var(--amber);
-    color:#1c1b19;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.62rem;
-    font-weight:700;
-    min-width:16px; height:16px;
+  .logo-text .name span{ color:var(--red); }
+  .logo-text .tagline{ font-size:0.68rem; color:var(--text-faint); letter-spacing:0.03em; }
+  .ad-slot{
+    flex:1; max-width:520px; height:76px;
+    background:repeating-linear-gradient(135deg,#eef0f2 0 10px,#e6e8eb 10px 20px);
+    border:1px dashed var(--border-strong);
     display:flex; align-items:center; justify-content:center;
-    border-radius:50%;
-    padding:0 2px;
+    color:var(--text-faint); font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase;
+    font-family:'Oswald',sans-serif;
   }
-  .menu-toggle{
-    display:none;
-    background:none; border:1px solid var(--line-strong);
-    color:var(--text);
-    width:38px; height:38px;
-    cursor:pointer;
-    font-size:1rem;
+  .header-extra{ display:flex; align-items:center; gap:0.8rem; flex-shrink:0; }
+  .btn-cart{
+    position:relative; display:flex; align-items:center; justify-content:center;
+    width:38px; height:38px; border:1px solid var(--border-strong); border-radius:3px;
+    color:var(--text-dim); transition:border-color 0.15s, color 0.15s;
   }
+  .btn-cart:hover{ border-color:var(--blue); color:var(--blue); }
+  .btn-cart svg{ width:18px; height:18px; }
+  .cart-count{
+    position:absolute; top:-6px; right:-6px; background:var(--red); color:#fff;
+    font-family:'Oswald',sans-serif; font-size:0.62rem; font-weight:600;
+    min-width:16px; height:16px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; padding:0 2px;
+  }
+
+  /* ---------- NAV TABS ---------- */
+  nav.tabs{ background:var(--surface); border-bottom:1px solid var(--border); }
+  .tabs-row{ display:flex; align-items:stretch; flex-wrap:wrap; }
+  .tabs-row a{
+    display:flex; align-items:center; gap:0.4rem;
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:0.85rem;
+    letter-spacing:0.03em; text-transform:uppercase; color:var(--text-dim);
+    padding:0.85rem 1.15rem; border-right:1px solid var(--border);
+    transition:background 0.15s, color 0.15s;
+    position:relative;
+  }
+  .tabs-row a:first-child{ padding:0.85rem 1rem; }
+  .tabs-row a svg{ width:16px; height:16px; fill:currentColor; }
+  .tabs-row a:hover{ background:var(--bg); color:var(--text); }
+  .tab-f1.active{ background:var(--blue); color:#fff; }
+  .tab-f1.active:hover{ background:var(--blue-dark); color:#fff; }
+  .tab-motogp:hover{ background:var(--red); color:#fff; }
+  .tab-rally:hover{ background:var(--green); color:#fff; }
+  .tab-tienda:hover{ background:var(--amber); color:#fff; }
+  .tab-redes:hover{ background:#3a3d42; color:#fff; }
+
+  /* dropdown */
+  .has-drop{ position:relative; }
+  .dropdown{
+    display:none; position:absolute; top:100%; left:0; z-index:40;
+    background:var(--surface); border:1px solid var(--border); box-shadow:0 8px 24px rgba(0,0,0,0.1);
+    min-width:600px; padding:1rem; grid-template-columns:180px 1fr; gap:1rem;
+  }
+  .has-drop:hover .dropdown{ display:grid; }
+  .drop-links{ display:flex; flex-direction:column; border-right:1px solid var(--border); padding-right:1rem; }
+  .drop-links a{
+    padding:0.5rem 0.3rem; font-family:'Inter',sans-serif; text-transform:none;
+    font-weight:600; font-size:0.85rem; letter-spacing:0; color:var(--text);
+    border-right:none;
+  }
+  .drop-links a:hover{ background:var(--bg); color:var(--blue); }
+  .drop-articles{ display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; }
+  .drop-article{ display:flex; flex-direction:column; gap:0.2rem; }
+  .drop-article .tag{
+    font-family:'Oswald',sans-serif; font-size:0.6rem; font-weight:600;
+    color:var(--blue); text-transform:uppercase; letter-spacing:0.03em;
+  }
+  .drop-article .t{
+    font-family:'Inter',sans-serif; font-size:0.78rem; font-weight:600; color:var(--text);
+    text-transform:none; letter-spacing:0; line-height:1.3;
+  }
+  .drop-article .t:hover{ color:var(--blue); }
 
   /* ---------- LAYOUT ---------- */
-  .content-grid{
-    display:grid;
-    grid-template-columns: 1fr 320px;
-    gap: 2.5rem;
-    padding: 2.5rem 0 4rem;
-    align-items:start;
-  }
+  .content-grid{ display:grid; grid-template-columns:1fr 320px; gap:1.8rem; padding:1.8rem 0 3rem; align-items:start; }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    border:1px solid var(--line);
-    background:var(--surface);
-    margin-bottom:2.5rem;
-    overflow:hidden;
+  /* ---------- SECTION BADGE ---------- */
+  .section-badge{
+    display:inline-flex; align-items:center; gap:0.4rem;
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:0.85rem;
+    letter-spacing:0.04em; text-transform:uppercase; color:#fff;
+    padding:0.5rem 1rem; margin-bottom:1.1rem;
   }
-  .hero-grid{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .hero-media{
-    position:relative;
-    background:
-      repeating-linear-gradient(115deg, #000 0 22px, #17110a 22px 44px),
-      linear-gradient(160deg,#3a2a10,#1c1b19 60%);
-    min-height:420px;
-    display:flex;
-    align-items:flex-end;
-    padding:1.5rem;
-  }
-  .hero-media .p1{
-    font-family:'Teko', sans-serif;
-    font-size:9rem;
-    font-weight:700;
-    color:rgba(255,184,0,0.14);
-    position:absolute;
-    top:-1rem; left:0.5rem;
-    line-height:1;
-    user-select:none;
-  }
-  .hero-media .cat-badge{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.7rem;
-    font-weight:700;
-    background:var(--amber);
-    color:#1c1b19;
-    padding:0.3rem 0.6rem;
-    letter-spacing:0.05em;
-  }
-  .hero-body{
-    padding:2.2rem 2.2rem 2rem;
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-  }
-  .hero-title{
-    font-size:clamp(2.2rem, 4vw, 3.4rem);
-    color:var(--text);
-  }
-  .hero-dek{
-    color:var(--text-dim);
-    font-size:1rem;
-    max-width:46ch;
-  }
-  .byline{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.72rem;
-    color:var(--text-faint);
-    display:flex;
-    gap:0.8rem;
-    align-items:center;
-    margin-top:auto;
-    padding-top:1rem;
-    border-top:1px solid var(--line);
-  }
+  .badge-blue{ background:var(--blue); }
+  .badge-red{ background:var(--red); }
+  .badge-green{ background:var(--green); }
+  .badge-amber{ background:var(--amber); }
 
-  /* ---------- SECTION HEADER ---------- */
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    border-bottom:1px solid var(--line-strong);
-    padding-bottom:0.6rem;
-    margin-bottom:1.3rem;
-  }
-  .section-head h2{
-    font-family:'Teko', sans-serif;
-    font-weight:600;
-    font-size:1.9rem;
-    text-transform:uppercase;
-    letter-spacing:0.01em;
-  }
-  .section-head a{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.7rem;
-    color:var(--text-faint);
-    letter-spacing:0.05em;
-  }
-  .section-head a:hover{ color:var(--amber); }
+  section.category{ margin-bottom:2.6rem; }
 
-  section.category{ margin-bottom:3rem; }
-
-  /* ---------- CARDS ---------- */
-  .card-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:1.4rem;
+  /* ---------- NEWS CARDS ---------- */
+  .card-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; }
+  .news-card{ display:flex; flex-direction:column; }
+  .news-media{
+    position:relative; height:170px; border-radius:2px; overflow:hidden;
+    background:repeating-linear-gradient(115deg,#20242a 0 18px,#2c3138 18px 36px);
   }
-  .card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    display:flex;
-    flex-direction:column;
-    transition:border-color 0.15s, transform 0.15s;
+  .news-tag{
+    position:absolute; top:0.6rem; left:0.6rem;
+    background:var(--surface); border:1px solid var(--border-strong);
+    font-family:'Oswald',sans-serif; font-size:0.62rem; font-weight:600;
+    letter-spacing:0.04em; text-transform:uppercase; color:var(--text);
+    padding:0.25rem 0.5rem;
   }
-  .card:hover{
-    border-color:var(--line-strong);
-    transform:translateY(-2px);
+  .news-title{
+    font-family:'Inter',sans-serif; font-weight:700; font-size:1.02rem; line-height:1.35;
+    color:var(--text); margin-top:0.7rem;
   }
-  .card-media{
-    position:relative;
-    height:150px;
-    background:
-      repeating-linear-gradient(70deg, #000 0 14px, #201c18 14px 28px);
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    padding:0.7rem;
+  .news-title:hover{ color:var(--blue); }
+  .news-byline{
+    font-size:0.72rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.02em;
+    margin-top:0.4rem; display:flex; gap:0.5rem; flex-wrap:wrap;
   }
-  .num-tag{
-    font-family:'Teko', sans-serif;
-    font-size:1.6rem;
-    font-weight:700;
-    background:var(--surface-3);
-    color:var(--amber);
-    width:2.4rem; height:2.1rem;
-    display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--line-strong);
-  }
-  .cat-chip{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.62rem;
-    letter-spacing:0.06em;
-    color:var(--text);
-    background:rgba(0,0,0,0.5);
-    padding:0.25rem 0.45rem;
-    border:1px solid var(--line-strong);
-    height:fit-content;
-  }
-  .card-body{
-    padding:1rem 1.1rem 1.2rem;
-    display:flex;
-    flex-direction:column;
-    gap:0.55rem;
-    flex:1;
-  }
-  .card-body h3{
-    font-size:1.02rem;
-    font-weight:700;
-    line-height:1.3;
-  }
-  .card-body p{
-    font-size:0.85rem;
-    color:var(--text-dim);
-    line-height:1.5;
-  }
-  .card-meta{
-    margin-top:auto;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.65rem;
-    color:var(--text-faint);
-    display:flex;
-    justify-content:space-between;
-    padding-top:0.6rem;
-    border-top:1px solid var(--line);
-  }
-
-  /* row list style for MotoGP section variant */
-  .list-rows{
-    display:flex;
-    flex-direction:column;
-  }
-  .list-row{
-    display:grid;
-    grid-template-columns: 3rem 1fr auto;
-    gap:1rem;
-    align-items:center;
-    padding:1rem 0;
-    border-bottom:1px solid var(--line);
-  }
-  .list-row:first-child{ padding-top:0; }
-  .list-row:last-child{ border-bottom:none; }
-  .list-row .pos{
-    font-family:'Teko', sans-serif;
-    font-size:2.2rem;
-    font-weight:700;
-    color:var(--text-faint);
-  }
-  .list-row h3{ font-size:0.98rem; font-weight:700; margin-bottom:0.2rem;}
-  .list-row p{ font-size:0.8rem; color:var(--text-dim); }
-  .list-row .meta{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.68rem;
-    color:var(--text-faint);
-    text-align:right;
-    white-space:nowrap;
-  }
-
-  /* ---------- TIENDA ---------- */
-  .shop-intro{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:1.5rem;
-    margin-bottom:1.6rem;
-    flex-wrap:wrap;
-  }
-  .shop-intro p{
-    color:var(--text-dim);
-    font-size:0.88rem;
-    max-width:52ch;
-  }
-  .product-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    display:flex;
-    flex-direction:column;
-    transition:border-color 0.15s, transform 0.15s;
-  }
-  .product-card:hover{ border-color:var(--line-strong); transform:translateY(-2px); }
-  .product-media{
-    position:relative;
-    height:170px;
-    background:
-      repeating-linear-gradient(70deg, #000 0 14px, #201c18 14px 28px);
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    padding:0.7rem;
-  }
-  .product-media .stock-chip{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.62rem;
-    letter-spacing:0.05em;
-    color:var(--green);
-    background:rgba(0,0,0,0.55);
-    padding:0.25rem 0.45rem;
-    border:1px solid var(--line-strong);
-  }
-  .product-body{
-    padding:1rem 1.1rem 1.1rem;
-    display:flex;
-    flex-direction:column;
-    gap:0.5rem;
-    flex:1;
-  }
-  .product-body h3{ font-size:1rem; font-weight:700; }
-  .product-body .desc{ font-size:0.8rem; color:var(--text-dim); }
-  .product-foot{
-    margin-top:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:0.6rem;
-    padding-top:0.7rem;
-    border-top:1px solid var(--line);
-  }
-  .price{
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
-    color:var(--amber);
-    font-size:0.95rem;
-  }
-  .add-btn{
-    background:var(--amber);
-    color:#1c1b19;
-    border:none;
-    padding:0.5rem 0.7rem;
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
-    font-size:0.65rem;
-    letter-spacing:0.05em;
-    cursor:pointer;
-    transition:background 0.15s;
-    white-space:nowrap;
-  }
-  .add-btn:hover{ background:#ffcc4d; }
-  .add-btn.added{ background:var(--green); color:#0e1b14; }
+  .news-byline b{ color:var(--text-dim); }
+  .news-excerpt{ font-size:0.85rem; color:var(--text-dim); margin-top:0.45rem; line-height:1.5; }
 
   /* ---------- SIDEBAR ---------- */
-  .sidebar{
-    display:flex;
-    flex-direction:column;
-    gap:1.6rem;
-    position:sticky;
-    top:5.2rem;
+  .sidebar{ display:flex; flex-direction:column; gap:1.4rem; position:sticky; top:1.5rem; }
+  .panel{ background:var(--surface); border:1px solid var(--border); }
+  .panel-tabs{ display:flex; }
+  .panel-tabs button{
+    flex:1; border:none; background:var(--bg); color:var(--text-dim);
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:0.75rem;
+    letter-spacing:0.03em; text-transform:uppercase; padding:0.7rem 0.5rem; cursor:pointer;
+    transition:background 0.15s, color 0.15s;
   }
-  .panel{
-    background:var(--surface);
-    border:1px solid var(--line);
+  .panel-tabs button.active{ background:var(--text); color:#fff; }
+  .side-list{ display:flex; flex-direction:column; }
+  .side-row{
+    display:flex; gap:0.7rem; align-items:flex-start;
+    padding:0.8rem 0.9rem; border-bottom:1px solid var(--border);
   }
+  .side-row:last-child{ border-bottom:none; }
+  .side-thumb{
+    width:60px; height:48px; flex-shrink:0; border-radius:2px;
+    background:repeating-linear-gradient(115deg,#20242a 0 10px,#2c3138 10px 20px);
+  }
+  .side-body .tag{
+    font-family:'Oswald',sans-serif; font-size:0.6rem; font-weight:600; color:var(--blue);
+    text-transform:uppercase; letter-spacing:0.03em; display:block; margin-bottom:0.15rem;
+  }
+  .side-body .t{ font-size:0.8rem; font-weight:600; line-height:1.3; color:var(--text); }
+  .side-body .t:hover{ color:var(--blue); }
+  .side-body .d{ font-size:0.68rem; color:var(--text-faint); margin-top:0.2rem; }
+  .side-hidden{ display:none; }
+
   .panel-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0.8rem 1rem;
-    border-bottom:1px solid var(--line-strong);
-    background:var(--surface-2);
+    padding:0.7rem 0.9rem; border-bottom:1px solid var(--border);
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:0.85rem;
+    letter-spacing:0.03em; text-transform:uppercase; color:var(--text);
   }
-  .panel-head h3{
-    font-family:'Teko', sans-serif;
-    font-size:1.15rem;
-    font-weight:600;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-  }
-  .panel-head .mono{
-    font-size:0.62rem;
-    color:var(--text-faint);
-  }
-
-  /* timing tower */
-  .timing-row{
-    display:grid;
-    grid-template-columns: 1.6rem 1fr auto;
-    gap:0.6rem;
-    align-items:center;
-    padding:0.55rem 1rem;
-    border-bottom:1px solid var(--line);
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.76rem;
-  }
-  .timing-row:last-child{ border-bottom:none; }
-  .timing-row .p{
-    color:var(--amber);
-    font-weight:700;
-  }
-  .timing-row .drv{ color:var(--text); }
-  .timing-row .team{ color:var(--text-faint); font-size:0.66rem; display:block;}
-  .timing-row .gap{ color:var(--text-dim); text-align:right; }
-  .timing-row.leader .gap{ color:var(--green); }
-
-  .panel-foot{
-    padding:0.6rem 1rem;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.62rem;
-    color:var(--text-faint);
-    letter-spacing:0.04em;
-  }
-
-  /* social */
-  .social-grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:0.6rem;
-    padding:1rem;
-  }
+  .social-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:0.6rem; padding:0.9rem; }
   .social-link{
-    display:flex;
-    align-items:center;
-    gap:0.55rem;
-    border:1px solid var(--line-strong);
-    padding:0.55rem 0.6rem;
-    transition:border-color 0.15s;
+    display:flex; align-items:center; gap:0.5rem;
+    border:1px solid var(--border-strong); padding:0.5rem 0.6rem; border-radius:2px;
+    transition:border-color 0.15s, background 0.15s;
   }
-  .social-link svg{
-    width:18px; height:18px;
-    fill:var(--text-dim);
-    flex-shrink:0;
-    transition:fill 0.15s;
-  }
-  .social-link:hover{ border-color:var(--amber); }
-  .social-link:hover svg{ fill:var(--amber); }
-  .social-link .s-name{
-    display:block;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.7rem;
-    color:var(--text);
-  }
-  .social-link .s-handle{
-    display:block;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.6rem;
-    color:var(--text-faint);
-  }
-  @media (max-width:640px){
-    .social-grid{ grid-template-columns:1fr; }
-  }
+  .social-link:hover{ border-color:var(--blue); background:var(--bg); }
+  .social-link svg{ width:17px; height:17px; fill:var(--text-dim); flex-shrink:0; }
+  .social-link .s-name{ display:block; font-size:0.72rem; font-weight:700; color:var(--text); }
+  .social-link .s-handle{ display:block; font-size:0.62rem; color:var(--text-faint); }
 
-  /* newsletter */
-  .panel.subscribe .panel-body{
-    padding:1.1rem 1rem 1.3rem;
-  }
-  .panel.subscribe p{
-    font-size:0.8rem;
-    color:var(--text-dim);
-    margin-bottom:0.9rem;
-  }
-  .sub-form{
-    display:flex;
-    flex-direction:column;
-    gap:0.6rem;
-  }
+  .panel.subscribe .panel-body{ padding:0.9rem; }
+  .panel.subscribe p{ font-size:0.8rem; color:var(--text-dim); margin-bottom:0.8rem; }
+  .sub-form{ display:flex; flex-direction:column; gap:0.5rem; }
   .sub-form input{
-    background:var(--bg);
-    border:1px solid var(--line-strong);
-    color:var(--text);
-    padding:0.6rem 0.7rem;
-    font-family:'Inter', sans-serif;
-    font-size:0.85rem;
+    background:var(--bg); border:1px solid var(--border-strong); border-radius:2px;
+    padding:0.55rem 0.65rem; font-family:'Inter',sans-serif; font-size:0.84rem; color:var(--text);
   }
-  .sub-form input::placeholder{ color:var(--text-faint); }
   .sub-form button{
-    background:var(--amber);
-    color:#1c1b19;
-    border:none;
-    padding:0.65rem;
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
-    font-size:0.72rem;
-    letter-spacing:0.06em;
-    cursor:pointer;
-    transition:background 0.15s;
+    background:var(--blue); color:#fff; border:none; border-radius:2px; padding:0.6rem;
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:0.75rem; letter-spacing:0.03em;
+    text-transform:uppercase; cursor:pointer; transition:background 0.15s;
   }
-  .sub-form button:hover{ background:#ffcc4d; }
+  .sub-form button:hover{ background:var(--blue-dark); }
 
-  /* tags panel */
-  .tag-cloud{
-    padding:1rem;
-    display:flex;
-    flex-wrap:wrap;
-    gap:0.5rem;
+  .shop-promo{ padding:0.9rem; display:flex; flex-direction:column; gap:0.6rem; }
+  .shop-promo p{ font-size:0.8rem; color:var(--text-dim); }
+  .shop-promo a.btn{
+    display:inline-block; text-align:center; background:var(--amber); color:#fff;
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:0.75rem; letter-spacing:0.03em;
+    text-transform:uppercase; padding:0.6rem; border-radius:2px;
   }
-  .tag-cloud a{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.68rem;
-    color:var(--text-dim);
-    border:1px solid var(--line-strong);
-    padding:0.35rem 0.6rem;
+  .shop-promo a.btn:hover{ background:var(--amber-dark); }
+
+  /* ---------- TIENDA ---------- */
+  .shop-intro{ font-size:0.86rem; color:var(--text-dim); margin-bottom:1.2rem; max-width:60ch; }
+  .product-card{ background:var(--surface); border:1px solid var(--border); display:flex; flex-direction:column; }
+  .product-media{
+    position:relative; height:150px;
+    background:repeating-linear-gradient(115deg,#20242a 0 18px,#2c3138 18px 36px);
   }
-  .tag-cloud a:hover{ border-color:var(--amber); color:var(--amber); }
+  .stock-chip{
+    position:absolute; top:0.6rem; right:0.6rem; background:rgba(255,255,255,0.92);
+    color:var(--green-dark); font-family:'Oswald',sans-serif; font-size:0.6rem; font-weight:600;
+    letter-spacing:0.03em; text-transform:uppercase; padding:0.22rem 0.45rem; border-radius:2px;
+  }
+  .product-body{ padding:0.9rem 1rem 1rem; display:flex; flex-direction:column; gap:0.4rem; flex:1; }
+  .product-body h3{ font-size:0.95rem; font-weight:700; }
+  .product-body .desc{ font-size:0.78rem; color:var(--text-dim); }
+  .product-foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:0.6rem; border-top:1px solid var(--border); }
+  .price{ font-family:'Oswald',sans-serif; font-weight:700; color:var(--amber-dark); font-size:0.92rem; }
+  .add-btn{
+    background:var(--amber); color:#fff; border:none; border-radius:2px; padding:0.5rem 0.7rem;
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:0.68rem; letter-spacing:0.03em;
+    text-transform:uppercase; cursor:pointer; transition:background 0.15s;
+  }
+  .add-btn:hover{ background:var(--amber-dark); }
+  .add-btn.added{ background:var(--green); }
 
   /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line);
-    background:#000;
-    padding:2.5rem 0 1.5rem;
-  }
-  .foot-grid{
-    display:grid;
-    grid-template-columns: 1.4fr repeat(3, 1fr);
-    gap:2rem;
-    padding-bottom:2rem;
-  }
-  .foot-grid h4{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.68rem;
-    letter-spacing:0.1em;
-    color:var(--text-faint);
-    margin-bottom:0.8rem;
-    text-transform:uppercase;
-  }
-  .foot-grid ul{ list-style:none; display:flex; flex-direction:column; gap:0.5rem;}
-  .foot-grid a{ font-size:0.82rem; color:var(--text-dim); }
-  .foot-grid a:hover{ color:var(--amber); }
-  .foot-bottom{
-    border-top:1px solid var(--line);
-    padding-top:1.2rem;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:0.8rem;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.65rem;
-    color:var(--text-faint);
-  }
+  footer{ background:#1b1c1e; color:#c7c9cc; padding:2.2rem 0 1.3rem; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:2rem; padding-bottom:1.8rem; }
+  .foot-grid h4{ font-family:'Oswald',sans-serif; font-size:0.75rem; letter-spacing:0.04em; color:#8d9095; text-transform:uppercase; margin-bottom:0.7rem; }
+  .foot-grid ul{ list-style:none; display:flex; flex-direction:column; gap:0.45rem; }
+  .foot-grid a{ font-size:0.82rem; color:#c7c9cc; }
+  .foot-grid a:hover{ color:#fff; }
+  .foot-bottom{ border-top:1px solid #303236; padding-top:1rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.6rem; font-size:0.72rem; color:#8d9095; }
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 980px){
+  @media (max-width:980px){
     .content-grid{ grid-template-columns:1fr; }
     .sidebar{ position:static; }
     .card-grid{ grid-template-columns:repeat(2,1fr); }
-    .hero-grid{ grid-template-columns:1fr; }
-    .hero-media{ min-height:260px; }
+    .ad-slot{ display:none; }
     .foot-grid{ grid-template-columns:1fr 1fr; }
+    .dropdown{ min-width:100%; grid-template-columns:1fr; }
   }
-  @media (max-width: 640px){
-    nav.main{ display:none; }
-    .menu-toggle{ display:block; }
+  @media (max-width:640px){
     .card-grid{ grid-template-columns:1fr; }
+    .tabs-row a{ padding:0.7rem 0.8rem; font-size:0.78rem; }
+    .util-row{ justify-content:center; }
+    .social-strip{ order:2; }
+    .search-box{ order:1; width:100%; }
     .foot-grid{ grid-template-columns:1fr 1fr; }
-    .list-row{ grid-template-columns:2.4rem 1fr; }
-    .list-row .meta{ grid-column:2; text-align:left; }
   }
 </style>
 </head>
 <body>
 
-<div class="ticker-bar">
-  <div class="ticker-track" id="tickerTrack"></div>
+<div class="util-bar">
+  <div class="wrap util-row">
+    <div class="social-strip">
+      <a href="https://www.facebook.com/nico.eze.melo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M15.12 8.44h2.4l-.37 3.13h-2.03v8.23h-3.24v-8.23H9.9V8.44h1.98V6.87c0-1 .27-2.02.9-2.72.64-.71 1.62-1.05 2.9-1.05.93 0 1.6.07 1.85.1v2.82h-1.34c-.65 0-1.07.16-1.28.4-.2.25-.29.6-.29 1.1v1.92z"/></svg>
+        Facebook
+      </a>
+      <a href="https://x.com/nmelo90" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M13.9 10.86 20.3 3.6h-1.9l-5.5 6.27L8.6 3.6H3.4l6.7 9.6-6.7 7.6h1.9l5.8-6.6 4.6 6.6h5.2l-6.9-9.94zM11.8 13.4l-.67-.95L5.8 5.02h2.1l4.3 6.14.67.95 5.6 8h-2.1L11.8 13.4z"/></svg>
+        X
+      </a>
+      <a href="https://www.instagram.com/nmelo_90/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 3.2c2.7 0 3 .01 4.12.06 1.1.05 1.85.23 2.5.48.68.26 1.25.62 1.82 1.19.57.57.93 1.14 1.19 1.82.25.65.43 1.4.48 2.5.05 1.12.06 1.42.06 4.12s-.01 3-.06 4.12c-.05 1.1-.23 1.85-.48 2.5a5 5 0 0 1-1.19 1.82 5 5 0 0 1-1.82 1.19c-.65.25-1.4.43-2.5.48-1.12.05-1.42.06-4.12.06s-3-.01-4.12-.06c-1.1-.05-1.85-.23-2.5-.48a5 5 0 0 1-1.82-1.19 5 5 0 0 1-1.19-1.82c-.25-.65-.43-1.4-.48-2.5C3.21 15 3.2 14.7 3.2 12s.01-3 .06-4.12c.05-1.1.23-1.85.48-2.5.26-.68.62-1.25 1.19-1.82A5 5 0 0 1 6.75 1.9c.65-.25 1.4-.43 2.5-.48C10.37 1.37 10.67 1.36 12 1.36V3.2zm0 1.62c-2.65 0-2.96.01-4.01.06-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.7-.05 1.06-.06 1.37-.06 4.01s.01 2.96.06 4.01c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.7.32 1.06.05 1.37.06 4.02.06s2.96-.01 4.02-.06c.9-.04 1.39-.19 1.7-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.7.05-1.06.06-1.37.06-4.02s-.01-2.96-.06-4.01c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.7-.32-1.06-.05-1.37-.06-4.02-.06zM12 6.87A5.13 5.13 0 1 1 12 17.1 5.13 5.13 0 0 1 12 6.87zm0 8.46a3.33 3.33 0 1 0 0-6.66 3.33 3.33 0 0 0 0 6.66zm6.53-8.66a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.youtube.com/@Nmelo90" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M21.6 7.2s-.21-1.5-.86-2.16c-.82-.87-1.74-.87-2.16-.92C15.6 4 12 4 12 4h-.01s-3.6 0-6.58.12c-.42.05-1.34.05-2.16.92C2.6 5.7 2.4 7.2 2.4 7.2S2.18 8.95 2.18 10.7v1.6c0 1.75.22 3.5.22 3.5s.2 1.5.85 2.16c.82.87 1.9.84 2.38.94C7.4 19.06 12 19.1 12 19.1s3.6-.01 6.58-.13c.42-.05 1.34-.05 2.16-.92.65-.66.86-2.16.86-2.16s.22-1.75.22-3.5v-1.6c0-1.75-.22-3.5-.22-3.5zM9.98 14.6V8.9l5.5 2.86-5.5 2.85z"/></svg>
+        YouTube
+      </a>
+      <a href="https://www.tiktok.com/@nmelo90" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-.97-.9-1.56-2.14-1.6-3.55h-3.05v13.4c0 1.5-1.22 2.72-2.72 2.72a2.72 2.72 0 0 1 0-5.44c.28 0 .55.04.8.12V9.9a5.77 5.77 0 0 0-.8-.06A5.77 5.77 0 1 0 15.9 15.6V9.28a8.6 8.6 0 0 0 4.97 1.58V7.8a5.6 5.6 0 0 1-4.27-1.98z"/></svg>
+        TikTok
+      </a>
+    </div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      <input type="text" placeholder="Buscar...">
+    </div>
+  </div>
 </div>
 
 <header class="site">
-  <div class="wrap nav-row">
+  <div class="wrap header-row">
     <a href="#" class="logo">
-      <span class="mark">HDA<span>.</span></span>
-      <span class="sub">HABLEMOS DE AUTOMOVILISMO</span>
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="4" y="6" width="6" height="36" fill="#1b1c1e"/>
+        <g>
+          <rect x="10" y="6" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="20" y="6" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="30" y="6" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="15" y="11" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="25" y="11" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="35" y="11" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="10" y="16" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="20" y="16" width="5" height="5" fill="#1b1c1e"/>
+          <rect x="30" y="16" width="5" height="5" fill="#1b1c1e"/>
+        </g>
+        <path d="M4 42 L40 42 L40 38 L4 38 Z" fill="#c94436"/>
+      </svg>
+      <div class="logo-text">
+        <div class="name">Hablemos<span>.</span>de Auto</div>
+        <div class="tagline">NOTICIAS DE AUTOMOVILISMO</div>
+      </div>
     </a>
-    <nav class="main">
-      <a href="#formula1">Fórmula 1</a>
-      <a href="#motogp">MotoGP</a>
-      <a href="#rally">Rally &amp; TER</a>
-      <a href="#resistencia">Resistencia</a>
-      <a href="#tienda">Tienda</a>
-      <a href="#opinion">Opinión</a>
-    </nav>
-    <div class="nav-extra">
-      <a href="#" class="btn-live"><span class="dot"></span>EN VIVO</a>
+    <div class="ad-slot">ESPACIO PUBLICITARIO · 468×70</div>
+    <div class="header-extra">
       <a href="#tienda" class="btn-cart" aria-label="Ver carrito">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h2l.4 2M6.4 6h14.1l-1.6 8H7.6M6.4 6 8 15h10.5M8 15a1.8 1.8 0 1 0 0 3.6A1.8 1.8 0 0 0 8 15zm9 0a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </a>
-      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
     </div>
   </div>
 </header>
+
+<nav class="tabs">
+  <div class="wrap tabs-row">
+    <a href="#" aria-label="Inicio"><svg viewBox="0 0 24 24"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg></a>
+    <div class="has-drop">
+      <a href="#formula1" class="tab-f1 active">Fórmula 1</a>
+      <div class="dropdown">
+        <div class="drop-links">
+          <a href="#formula1">Pilotos</a>
+          <a href="#formula1">Escuderías</a>
+          <a href="#formula1">Calendario</a>
+          <a href="#formula1">Resultados</a>
+        </div>
+        <div class="drop-articles">
+          <div class="drop-article"><span class="tag">Mercado de pases</span><a class="t" href="#formula1">Se acerca la renovación de Franco</a></div>
+          <div class="drop-article"><span class="tag">Técnica</span><a class="t" href="#formula1">El nuevo piso trasero suma carga sin penalizar velocidad</a></div>
+          <div class="drop-article"><span class="tag">Reglamento</span><a class="t" href="#formula1">Sanción revierte el resultado en la última vuelta</a></div>
+          <div class="drop-article"><span class="tag">Estrategia</span><a class="t" href="#formula1">La ventana de parada se adelanta por lluvia</a></div>
+        </div>
+      </div>
+    </div>
+    <a href="#motogp" class="tab-motogp">MotoGP</a>
+    <a href="#rally" class="tab-rally">Rally &amp; Resistencia</a>
+    <a href="#tienda" class="tab-tienda">Tienda</a>
+    <a href="https://www.youtube.com/@Nmelo90" target="_blank" rel="noopener" class="tab-redes">Videos</a>
+  </div>
+</nav>
 
 <div class="wrap">
   <div class="content-grid">
 
     <main>
-      <!-- HERO -->
-      <article class="hero">
-        <div class="hero-grid">
-          <div class="hero-media">
-            <span class="p1">P1</span>
-            <span class="cat-badge">FÓRMULA 1 · CLASIFICACIÓN</span>
-          </div>
-          <div class="hero-body">
-            <span class="eyebrow">Última hora</span>
-            <h1 class="hero-title display">Pole conquistada por apenas ocho milésimas en la última tanda</h1>
-            <p class="hero-dek">El equipo ajustó el reparto aerodinámico entre Q2 y Q3 y encontró el agarre que le faltaba en el sector final, dejando a toda la parrilla mirando la pantalla de tiempos hasta el último auto.</p>
-            <div class="byline">
-              <span>REDACCIÓN HDA</span>
-              <span>·</span>
-              <span>Circuito · Sábado</span>
-              <span>·</span>
-              <span>6 min de lectura</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- F1 SECTION -->
+      <!-- F1 -->
       <section class="category" id="formula1">
-        <div class="section-head">
-          <h2 class="display">Fórmula 1</h2>
-          <a href="#">Ver toda la cobertura →</a>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-media">
-              <span class="num-tag">43</span>
-              <span class="cat-chip">F1</span>
-            </div>
-            <div class="card-body">
-              <h3>Se acerca la renovación de Franco</h3>
-              <p>Con el regreso de Alonso a Alpine ya descartado, Colapinto quedó como el candidato favorito para quedarse con el segundo asiento junto a Gasly en 2027. Todavía no hay contrato firmado, pero el equipo no tendría apuro en definirlo.</p>
-              <div class="card-meta"><span>Mercado de pases</span><span>Hace 2 días</span></div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-media">
-              <span class="num-tag">16</span>
-              <span class="cat-chip">F1</span>
-            </div>
-            <div class="card-body">
-              <h3>El nuevo piso trasero suma carga sin penalizar la velocidad punta, según telemetría</h3>
-              <p>Ingeniería confirma una ganancia medible en el sector de curvas rápidas del último fin de semana.</p>
-              <div class="card-meta"><span>Técnica</span><span>Hace 5 h</span></div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-media">
-              <span class="num-tag">81</span>
-              <span class="cat-chip">F1</span>
-            </div>
-            <div class="card-body">
-              <h3>Sanción de cinco segundos revierte el resultado en la última vuelta de la clasificación al campeonato</h3>
-              <p>Los comisarios deliberaron más de cuarenta minutos antes de confirmar la decisión.</p>
-              <div class="card-meta"><span>Reglamento</span><span>Hace 1 día</span></div>
-            </div>
-          </article>
-        </div>
+        <span class="section-badge badge-blue">Fórmula 1 →</span>
+        <div class="card-grid" id="grid-formula1" data-loading="Cargando noticias de Fórmula 1..."></div>
       </section>
 
-      <!-- MOTOGP SECTION (list style) -->
+      <!-- MOTOGP -->
       <section class="category" id="motogp">
-        <div class="section-head">
-          <h2 class="display">MotoGP</h2>
-          <a href="#">Ver toda la cobertura →</a>
-        </div>
-        <div class="list-rows">
-          <div class="list-row">
-            <span class="pos display">01</span>
-            <div>
-              <h3>Adelantamiento en la última curva decide el Gran Premio bajo bandera a cuadros</h3>
-              <p>La maniobra se definió por menos de un décimo sobre la línea de meta.</p>
-            </div>
-            <span class="meta mono">CARRERA · HOY</span>
-          </div>
-          <div class="list-row">
-            <span class="pos display">02</span>
-            <div>
-              <h3>El neumático medio aguanta veinte vueltas más de lo estimado por los equipos</h3>
-              <p>La gestión de degradación cambió por completo el guion de la carrera larga.</p>
-            </div>
-            <span class="meta mono">NEUMÁTICOS · HOY</span>
-          </div>
-          <div class="list-row">
-            <span class="pos display">03</span>
-            <div>
-              <h3>Caída sin consecuencias en warm up obliga a revisar el chasis antes de la salida</h3>
-              <p>El equipo confirmó que el piloto está apto para largar tras la revisión médica.</p>
-            </div>
-            <span class="meta mono">PADDOCK · AYER</span>
-          </div>
-        </div>
+        <span class="section-badge badge-red">MotoGP →</span>
+        <div class="card-grid" id="grid-motogp" data-loading="Cargando noticias de MotoGP..."></div>
       </section>
 
-      <!-- RALLY / RESISTENCIA SECTION -->
+      <!-- RALLY -->
       <section class="category" id="rally">
-        <div class="section-head">
-          <h2 class="display">Rally &amp; Resistencia</h2>
-          <a href="#">Ver toda la cobertura →</a>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-media">
-              <span class="num-tag">07</span>
-              <span class="cat-chip">RALLY</span>
-            </div>
-            <div class="card-body">
-              <h3>El tramo nocturno reordena la general por completo tras la niebla en el valle</h3>
-              <p>Tres de los cinco primeros clasificados sufrieron pérdidas de tiempo por visibilidad.</p>
-              <div class="card-meta"><span>Especial</span><span>Hace 3 h</span></div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-media">
-              <span class="num-tag">51</span>
-              <span class="cat-chip">WEC</span>
-            </div>
-            <div class="card-body">
-              <h3>El stint nocturno más largo del año deja al equipo líder con doble vuelta de ventaja</h3>
-              <p>La estrategia de combustible extendió el relevo casi veinte minutos sobre lo habitual.</p>
-              <div class="card-meta"><span>Resistencia</span><span>Hace 8 h</span></div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-media">
-              <span class="num-tag">19</span>
-              <span class="cat-chip">RALLY</span>
-            </div>
-            <div class="card-body">
-              <h3>Cambio de neumático de lluvia a dos kilómetros del final del tramo</h3>
-              <p>La decisión de última hora del copiloto evitó una salida de pista en la curva final.</p>
-              <div class="card-meta"><span>Estrategia</span><span>Hace 1 día</span></div>
-            </div>
-          </article>
-        </div>
+        <span class="section-badge badge-green">Rally &amp; Resistencia →</span>
+        <div class="card-grid" id="grid-rally" data-loading="Cargando noticias de Rally..."></div>
       </section>
 
       <!-- TIENDA -->
       <section class="category" id="tienda">
-        <div class="section-head">
-          <h2 class="display">Tienda</h2>
-          <a href="#">Ver todo el catálogo →</a>
-        </div>
-        <div class="shop-intro">
-          <p>Merchandising oficial de Hablemos de Automovilismo: indumentaria y accesorios para el hincha de carreras. Envíos a todo el país.</p>
-        </div>
+        <span class="section-badge badge-amber">Tienda →</span>
+        <p class="shop-intro">Merchandising oficial de Hablemos de Automovilismo: indumentaria y accesorios para el hincha de carreras. Envíos a todo el país.</p>
         <div class="card-grid">
           <article class="product-card">
-            <div class="product-media">
-              <span class="cat-chip">TEXTIL</span>
-              <span class="stock-chip">EN STOCK</span>
-            </div>
+            <div class="product-media"><span class="stock-chip">En stock</span></div>
             <div class="product-body">
               <h3>Remera oficial "P1" — negra</h3>
               <p class="desc">Algodón peinado 24/1, estampado tipo tablero de cronometraje.</p>
-              <div class="product-foot">
-                <span class="price">$18.500</span>
-                <button class="add-btn" data-product="Remera oficial P1">Agregar</button>
-              </div>
+              <div class="product-foot"><span class="price">$18.500</span><button class="add-btn">Agregar</button></div>
             </div>
           </article>
           <article class="product-card">
-            <div class="product-media">
-              <span class="cat-chip">GORRAS</span>
-              <span class="stock-chip">EN STOCK</span>
-            </div>
+            <div class="product-media"><span class="stock-chip">En stock</span></div>
             <div class="product-body">
               <h3>Gorra Pit Lane — ajustable</h3>
-              <p class="desc">Visera curva, bordado en relieve con el logo HDA.</p>
-              <div class="product-foot">
-                <span class="price">$12.900</span>
-                <button class="add-btn" data-product="Gorra Pit Lane">Agregar</button>
-              </div>
+              <p class="desc">Visera curva, bordado en relieve con el logo.</p>
+              <div class="product-foot"><span class="price">$12.900</span><button class="add-btn">Agregar</button></div>
             </div>
           </article>
           <article class="product-card">
-            <div class="product-media">
-              <span class="cat-chip">BUZOS</span>
-              <span class="stock-chip">EN STOCK</span>
-            </div>
+            <div class="product-media"><span class="stock-chip">En stock</span></div>
             <div class="product-body">
               <h3>Buzo canguro "Bandera a cuadros"</h3>
               <p class="desc">Frisa interior, estampado a lo largo de la manga.</p>
-              <div class="product-foot">
-                <span class="price">$29.900</span>
-                <button class="add-btn" data-product="Buzo Bandera a cuadros">Agregar</button>
-              </div>
+              <div class="product-foot"><span class="price">$29.900</span><button class="add-btn">Agregar</button></div>
             </div>
           </article>
           <article class="product-card">
-            <div class="product-media">
-              <span class="cat-chip">TAZAS</span>
-              <span class="stock-chip">EN STOCK</span>
-            </div>
+            <div class="product-media"><span class="stock-chip">En stock</span></div>
             <div class="product-body">
               <h3>Taza "Torre de cronometraje"</h3>
               <p class="desc">Cerámica 350ml, apta microondas y lavavajillas.</p>
-              <div class="product-foot">
-                <span class="price">$7.400</span>
-                <button class="add-btn" data-product="Taza Torre de cronometraje">Agregar</button>
-              </div>
+              <div class="product-foot"><span class="price">$7.400</span><button class="add-btn">Agregar</button></div>
             </div>
           </article>
           <article class="product-card">
-            <div class="product-media">
-              <span class="cat-chip">STICKERS</span>
-              <span class="stock-chip">EN STOCK</span>
-            </div>
+            <div class="product-media"><span class="stock-chip">En stock</span></div>
             <div class="product-body">
               <h3>Pack de calcomanías x10</h3>
               <p class="desc">Vinilo resistente al agua, íconos de las categorías.</p>
-              <div class="product-foot">
-                <span class="price">$4.200</span>
-                <button class="add-btn" data-product="Pack calcomanías">Agregar</button>
-              </div>
+              <div class="product-foot"><span class="price">$4.200</span><button class="add-btn">Agregar</button></div>
             </div>
           </article>
           <article class="product-card">
-            <div class="product-media">
-              <span class="cat-chip">ACCESORIOS</span>
-              <span class="stock-chip">ÚLTIMAS UNIDADES</span>
-            </div>
+            <div class="product-media"><span class="stock-chip">Últimas unidades</span></div>
             <div class="product-body">
               <h3>Llavero dorsal metálico</h3>
               <p class="desc">Aleación cepillada, numerado en edición limitada.</p>
-              <div class="product-foot">
-                <span class="price">$5.600</span>
-                <button class="add-btn" data-product="Llavero dorsal">Agregar</button>
-              </div>
+              <div class="product-foot"><span class="price">$5.600</span><button class="add-btn">Agregar</button></div>
             </div>
           </article>
         </div>
       </section>
+    </main>
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="panel">
-        <div class="panel-head">
-          <h3>Torre de cronometraje</h3>
-          <span class="mono">EN VIVO</span>
+        <div class="panel-tabs">
+          <button class="active" data-tab="ultimas">Últimas noticias</button>
+          <button data-tab="masleidas">Más leídas</button>
         </div>
-        <div>
-          <div class="timing-row leader">
-            <span class="p">P1</span>
-            <span><span class="drv">V. Marín</span><span class="team">Escudería Norte</span></span>
-            <span class="gap">LÍDER</span>
-          </div>
-          <div class="timing-row">
-            <span class="p">P2</span>
-            <span><span class="drv">A. Duprat</span><span class="team">Team Vertex</span></span>
-            <span class="gap">+0.284</span>
-          </div>
-          <div class="timing-row">
-            <span class="p">P3</span>
-            <span><span class="drv">R. Cabral</span><span class="team">Escudería Norte</span></span>
-            <span class="gap">+1.062</span>
-          </div>
-          <div class="timing-row">
-            <span class="p">P4</span>
-            <span><span class="drv">K. Bergström</span><span class="team">Motiva Racing</span></span>
-            <span class="gap">+3.417</span>
-          </div>
-          <div class="timing-row">
-            <span class="p">P5</span>
-            <span><span class="drv">J. Ferretti</span><span class="team">Team Vertex</span></span>
-            <span class="gap">+4.108</span>
-          </div>
-        </div>
-        <div class="panel-foot">ACTUALIZADO CADA VUELTA · DATOS DE DEMOSTRACIÓN</div>
+        <div class="side-list" id="listUltimas"></div>
+        <div class="side-list side-hidden" id="listLeidas"></div>
       </div>
 
       <div class="panel">
-        <div class="panel-head">
-          <h3>Síguenos</h3>
-          <span class="mono">@HDA</span>
-        </div>
+        <div class="panel-head">Síguenos</div>
         <div class="social-grid">
-          <a href="https://www.tiktok.com/@nmelo90" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82c-.97-.9-1.56-2.14-1.6-3.55h-3.05v13.4c0 1.5-1.22 2.72-2.72 2.72a2.72 2.72 0 0 1 0-5.44c.28 0 .55.04.8.12V9.9a5.77 5.77 0 0 0-.8-.06A5.77 5.77 0 1 0 15.9 15.6V9.28a8.6 8.6 0 0 0 4.97 1.58V7.8a5.6 5.6 0 0 1-4.27-1.98z"/></svg>
+          <a href="https://www.tiktok.com/@nmelo90" class="social-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16.6 5.82c-.97-.9-1.56-2.14-1.6-3.55h-3.05v13.4c0 1.5-1.22 2.72-2.72 2.72a2.72 2.72 0 0 1 0-5.44c.28 0 .55.04.8.12V9.9a5.77 5.77 0 0 0-.8-.06A5.77 5.77 0 1 0 15.9 15.6V9.28a8.6 8.6 0 0 0 4.97 1.58V7.8a5.6 5.6 0 0 1-4.27-1.98z"/></svg>
             <span><span class="s-name">TikTok</span><span class="s-handle">@nmelo90</span></span>
           </a>
-          <a href="https://www.youtube.com/@Nmelo90" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.21-1.5-.86-2.16c-.82-.87-1.74-.87-2.16-.92C15.6 4 12 4 12 4h-.01s-3.6 0-6.58.12c-.42.05-1.34.05-2.16.92C2.6 5.7 2.4 7.2 2.4 7.2S2.18 8.95 2.18 10.7v1.6c0 1.75.22 3.5.22 3.5s.2 1.5.85 2.16c.82.87 1.9.84 2.38.94C7.4 19.06 12 19.1 12 19.1s3.6-.01 6.58-.13c.42-.05 1.34-.05 2.16-.92.65-.66.86-2.16.86-2.16s.22-1.75.22-3.5v-1.6c0-1.75-.22-3.5-.22-3.5zM9.98 14.6V8.9l5.5 2.86-5.5 2.85z"/></svg>
+          <a href="https://www.youtube.com/@Nmelo90" class="social-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M21.6 7.2s-.21-1.5-.86-2.16c-.82-.87-1.74-.87-2.16-.92C15.6 4 12 4 12 4h-.01s-3.6 0-6.58.12c-.42.05-1.34.05-2.16.92C2.6 5.7 2.4 7.2 2.4 7.2S2.18 8.95 2.18 10.7v1.6c0 1.75.22 3.5.22 3.5s.2 1.5.85 2.16c.82.87 1.9.84 2.38.94C7.4 19.06 12 19.1 12 19.1s3.6-.01 6.58-.13c.42-.05 1.34-.05 2.16-.92.65-.66.86-2.16.86-2.16s.22-1.75.22-3.5v-1.6c0-1.75-.22-3.5-.22-3.5zM9.98 14.6V8.9l5.5 2.86-5.5 2.85z"/></svg>
             <span><span class="s-name">YouTube</span><span class="s-handle">@Nmelo90</span></span>
           </a>
-          <a href="https://www.instagram.com/nmelo_90/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2c2.7 0 3 .01 4.12.06 1.1.05 1.85.23 2.5.48.68.26 1.25.62 1.82 1.19.57.57.93 1.14 1.19 1.82.25.65.43 1.4.48 2.5.05 1.12.06 1.42.06 4.12s-.01 3-.06 4.12c-.05 1.1-.23 1.85-.48 2.5a5 5 0 0 1-1.19 1.82 5 5 0 0 1-1.82 1.19c-.65.25-1.4.43-2.5.48-1.12.05-1.42.06-4.12.06s-3-.01-4.12-.06c-1.1-.05-1.85-.23-2.5-.48a5 5 0 0 1-1.82-1.19 5 5 0 0 1-1.19-1.82c-.25-.65-.43-1.4-.48-2.5C3.21 15 3.2 14.7 3.2 12s.01-3 .06-4.12c.05-1.1.23-1.85.48-2.5.26-.68.62-1.25 1.19-1.82A5 5 0 0 1 6.75 1.9c.65-.25 1.4-.43 2.5-.48C10.37 1.37 10.67 1.36 12 1.36V3.2zm0 1.62c-2.65 0-2.96.01-4.01.06-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.7-.05 1.06-.06 1.37-.06 4.01s.01 2.96.06 4.01c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.7.32 1.06.05 1.37.06 4.02.06s2.96-.01 4.02-.06c.9-.04 1.39-.19 1.7-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.7.05-1.06.06-1.37.06-4.02s-.01-2.96-.06-4.01c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.7-.32-1.06-.05-1.37-.06-4.02-.06zM12 6.87A5.13 5.13 0 1 1 12 17.1 5.13 5.13 0 0 1 12 6.87zm0 8.46a3.33 3.33 0 1 0 0-6.66 3.33 3.33 0 0 0 0 6.66zm6.53-8.66a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+          <a href="https://www.instagram.com/nmelo_90/" class="social-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 3.2c2.7 0 3 .01 4.12.06 1.1.05 1.85.23 2.5.48.68.26 1.25.62 1.82 1.19.57.57.93 1.14 1.19 1.82.25.65.43 1.4.48 2.5.05 1.12.06 1.42.06 4.12s-.01 3-.06 4.12c-.05 1.1-.23 1.85-.48 2.5a5 5 0 0 1-1.19 1.82 5 5 0 0 1-1.82 1.19c-.65.25-1.4.43-2.5.48-1.12.05-1.42.06-4.12.06s-3-.01-4.12-.06c-1.1-.05-1.85-.23-2.5-.48a5 5 0 0 1-1.82-1.19 5 5 0 0 1-1.19-1.82c-.25-.65-.43-1.4-.48-2.5C3.21 15 3.2 14.7 3.2 12s.01-3 .06-4.12c.05-1.1.23-1.85.48-2.5.26-.68.62-1.25 1.19-1.82A5 5 0 0 1 6.75 1.9c.65-.25 1.4-.43 2.5-.48C10.37 1.37 10.67 1.36 12 1.36V3.2zm0 1.62c-2.65 0-2.96.01-4.01.06-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.7-.05 1.06-.06 1.37-.06 4.01s.01 2.96.06 4.01c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.7.32 1.06.05 1.37.06 4.02.06s2.96-.01 4.02-.06c.9-.04 1.39-.19 1.7-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.7.05-1.06.06-1.37.06-4.02s-.01-2.96-.06-4.01c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.7-.32-1.06-.05-1.37-.06-4.02-.06zM12 6.87A5.13 5.13 0 1 1 12 17.1 5.13 5.13 0 0 1 12 6.87zm0 8.46a3.33 3.33 0 1 0 0-6.66 3.33 3.33 0 0 0 0 6.66zm6.53-8.66a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
             <span><span class="s-name">Instagram</span><span class="s-handle">@nmelo_90</span></span>
           </a>
-          <a href="https://www.facebook.com/nico.eze.melo" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.12 8.44h2.4l-.37 3.13h-2.03v8.23h-3.24v-8.23H9.9V8.44h1.98V6.87c0-1 .27-2.02.9-2.72.64-.71 1.62-1.05 2.9-1.05.93 0 1.6.07 1.85.1v2.82h-1.34c-.65 0-1.07.16-1.28.4-.2.25-.29.6-.29 1.1v1.92z"/></svg>
+          <a href="https://www.facebook.com/nico.eze.melo" class="social-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M15.12 8.44h2.4l-.37 3.13h-2.03v8.23h-3.24v-8.23H9.9V8.44h1.98V6.87c0-1 .27-2.02.9-2.72.64-.71 1.62-1.05 2.9-1.05.93 0 1.6.07 1.85.1v2.82h-1.34c-.65 0-1.07.16-1.28.4-.2.25-.29.6-.29 1.1v1.92z"/></svg>
             <span><span class="s-name">Facebook</span><span class="s-handle">Nico Meló</span></span>
           </a>
-          <a href="https://x.com/nmelo90" class="social-link" aria-label="X" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.9 10.86 20.3 3.6h-1.9l-5.5 6.27L8.6 3.6H3.4l6.7 9.6-6.7 7.6h1.9l5.8-6.6 4.6 6.6h5.2l-6.9-9.94zM11.8 13.4l-.67-.95L5.8 5.02h2.1l4.3 6.14.67.95 5.6 8h-2.1L11.8 13.4z"/></svg>
+          <a href="https://x.com/nmelo90" class="social-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M13.9 10.86 20.3 3.6h-1.9l-5.5 6.27L8.6 3.6H3.4l6.7 9.6-6.7 7.6h1.9l5.8-6.6 4.6 6.6h5.2l-6.9-9.94zM11.8 13.4l-.67-.95L5.8 5.02h2.1l4.3 6.14.67.95 5.6 8h-2.1L11.8 13.4z"/></svg>
             <span><span class="s-name">X</span><span class="s-handle">@nmelo90</span></span>
           </a>
         </div>
-        <div class="panel-foot">TODA LA COBERTURA, TAMBIÉN EN VIDEO Y EN VIVO</div>
       </div>
 
       <div class="panel subscribe">
-        <div class="panel-head"><h3>Boletín</h3></div>
+        <div class="panel-head">Boletín</div>
         <div class="panel-body">
-          <p>Un resumen cada lunes con lo esencial del fin de semana de carreras, sin relleno.</p>
+          <p>Un resumen cada lunes con lo esencial del fin de semana de carreras.</p>
           <div class="sub-form">
             <input type="email" placeholder="tu@correo.com" aria-label="Correo electrónico">
-            <button type="button">Suscribirme →</button>
+            <button type="button">Suscribirme</button>
           </div>
         </div>
       </div>
 
       <div class="panel">
-        <div class="panel-head"><h3>Temas</h3></div>
-        <div class="tag-cloud">
-          <a href="#">#Estrategia</a>
-          <a href="#">#Reglamento</a>
-          <a href="#">#Telemetría</a>
-          <a href="#">#Neumáticos</a>
-          <a href="#">#Clasificación</a>
-          <a href="#">#Paddock</a>
-          <a href="#">#Rookies</a>
+        <div class="panel-head">Tienda</div>
+        <div class="shop-promo">
+          <p>Remeras, gorras y accesorios oficiales de Hablemos de Automovilismo.</p>
+          <a href="#tienda" class="btn">Ver catálogo</a>
         </div>
       </div>
     </aside>
@@ -1106,61 +551,82 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <span class="logo">
-          <span class="mark" style="font-size:1.6rem;">HDA<span>.</span></span>
-          <span class="sub">HABLEMOS DE AUTOMOVILISMO</span>
-        </span>
-        <p style="color:var(--text-faint); font-size:0.78rem; margin-top:0.8rem; max-width:32ch;">
-          Cobertura diaria de automovilismo: estrategia, técnica y resultados, explicados sin vueltas de más.
-        </p>
+        <div class="logo-text"><div class="name" style="color:#fff;">Hablemos<span style="color:var(--red);">.</span>de Auto</div></div>
+        <p style="color:#8d9095; font-size:0.78rem; margin-top:0.7rem; max-width:32ch;">Cobertura diaria de automovilismo: estrategia, técnica y resultados, explicados sin vueltas de más.</p>
       </div>
       <div>
         <h4>Categorías</h4>
-        <ul>
-          <li><a href="#">Fórmula 1</a></li>
-          <li><a href="#">MotoGP</a></li>
-          <li><a href="#">Rally</a></li>
-          <li><a href="#">Resistencia</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Sección</h4>
-        <ul>
-          <li><a href="#">Opinión</a></li>
-          <li><a href="#">Técnica</a></li>
-          <li><a href="#">Resultados</a></li>
-          <li><a href="#">Calendario</a></li>
-        </ul>
+        <ul><li><a href="#formula1">Fórmula 1</a></li><li><a href="#motogp">MotoGP</a></li><li><a href="#rally">Rally &amp; Resistencia</a></li><li><a href="#tienda">Tienda</a></li></ul>
       </div>
       <div>
         <h4>Sitio</h4>
+        <ul><li><a href="#">Sobre Hablemos de Automovilismo</a></li><li><a href="#">Contacto</a></li><li><a href="#">Boletín</a></li></ul>
+      </div>
+      <div>
+        <h4>Redes</h4>
         <ul>
-          <li><a href="#">Sobre Hablemos de Automovilismo</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="#">Boletín</a></li>
+          <li><a href="https://www.instagram.com/nmelo_90/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@Nmelo90" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.tiktok.com/@nmelo90" target="_blank" rel="noopener">TikTok</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 HABLEMOS DE AUTOMOVILISMO</span>
-      <span>SITIO DE DEMOSTRACIÓN</span>
+      <span>SITIO EN DEMOSTRACIÓN — CONTENIDO PARCIALMENTE DE EJEMPLO</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // Poblar ticker con datos de demostración, duplicado para loop continuo
-  const items = [
-    { flag:'F1', txt:'Entrenamientos libres 3 finalizados', extra:'mejor vuelta 1:18.402' },
-    { flag:'MGP', txt:'Warm up completado', extra:'pista 32°C' },
-    { flag:'WEC', txt:'Hora 14 de 24', extra:'líder +2 vueltas' },
-    { flag:'RALLY', txt:'Tramo 9 en curso', extra:'niebla en el valle' },
-    { flag:'F1', txt:'Ventana de parada abierta', extra:'undercut en juego' },
-    { flag:'MGP', txt:'Bandera amarilla en el sector 2', extra:'caída sin heridos' },
-  ];
-  const track = document.getElementById('tickerTrack');
-  const html = items.map(i => `<span class="ticker-item"><b>${i.flag}</b>${i.txt}<span class="gap">${i.extra}</span></span>`).join('');
-  track.innerHTML = html + html; // duplicado para el loop del keyframe (-50%)
+  // Cargar noticias desde content/news.json y armar las tarjetas
+  function newsCardHTML(a){
+    return `<article class="news-card">
+      <div class="news-media"><span class="news-tag">${a.tag || ''}</span></div>
+      <a href="#" class="news-title">${a.title}</a>
+      <div class="news-byline"><b>Redacción</b><span>${a.date || ''}</span><span>VISTO: ${a.views || 0}</span></div>
+      <p class="news-excerpt">${a.excerpt || ''}</p>
+    </article>`;
+  }
+  function sideRowHTML(a){
+    return `<div class="side-row">
+      <div class="side-thumb"></div>
+      <div class="side-body"><span class="tag">${a.categoryLabel || ''}</span><a class="t" href="#${a.category}">${a.title}</a><div class="d">${a.date || ''}</div></div>
+    </div>`;
+  }
+  fetch('content/news.json')
+    .then(r => r.json())
+    .then(data => {
+      const articles = data.articles || [];
+      ['formula1','motogp','rally'].forEach(cat => {
+        const grid = document.getElementById('grid-' + cat);
+        if (!grid) return;
+        const items = articles.filter(a => a.category === cat);
+        grid.innerHTML = items.length ? items.map(newsCardHTML).join('') : '<p style="color:var(--text-faint); font-size:0.85rem;">Todavía no hay noticias cargadas en esta categoría.</p>';
+      });
+      const ultimas = articles.slice(0, 3);
+      const masLeidas = [...articles].sort((a,b) => (b.views||0) - (a.views||0)).slice(0, 3);
+      document.getElementById('listUltimas').innerHTML = ultimas.map(sideRowHTML).join('');
+      document.getElementById('listLeidas').innerHTML = masLeidas.map(sideRowHTML).join('');
+    })
+    .catch(err => {
+      console.error('No se pudo cargar content/news.json', err);
+      ['grid-formula1','grid-motogp','grid-rally'].forEach(id => {
+        const grid = document.getElementById(id);
+        if (grid) grid.innerHTML = '<p style="color:var(--text-faint); font-size:0.85rem;">No se pudieron cargar las noticias.</p>';
+      });
+    });
+
+  // Toggle sidebar tabs
+  const tabBtns = document.querySelectorAll('.panel-tabs button');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('listUltimas').classList.toggle('side-hidden', btn.dataset.tab !== 'ultimas');
+      document.getElementById('listLeidas').classList.toggle('side-hidden', btn.dataset.tab !== 'masleidas');
+    });
+  });
 
   // Carrito de compras (demostración, sin backend)
   let cartCount = 0;
@@ -1172,10 +638,7 @@
       const original = btn.textContent;
       btn.textContent = 'Agregado ✓';
       btn.classList.add('added');
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.classList.remove('added');
-      }, 1200);
+      setTimeout(() => { btn.textContent = original; btn.classList.remove('added'); }, 1200);
     });
   });
 </script>
