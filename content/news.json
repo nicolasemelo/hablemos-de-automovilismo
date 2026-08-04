@@ -2,16 +2,6 @@
   "articles": [
     {
       "views": 0,
-      "image": "/content/uploads/honda-hungria-dom-soymotor.jpg.jpg",
-      "excerpt": "Honda estrenará en Zandvoort su gran actualización de la unidad de potencia de 2026. El fabricante japonés llevará una doble evolución del ADUO en la primera carrera tras el parón veraniego, pero su auténtica apuesta no está en lo que ocurra este año, sino en llegar a 2027 con un motor completamente preparado.\n¿Qué llevará mejorado Honda? Shintaro Orihara desveló que en esta actualización de motor han modificado la precámara de combustión, la cámara y la forma del pistón. Sí, son tres cosas, pero según el reglamento, están metidas en un mismo bloque, por lo que forman parte de un único token. Tienen dos a su disposición.\n\nAparte de toda la potencia que puedan ganar con el ADUO, pueden hacer todos los ajustes que vean necesarios para mejorar la fiabilidad. Y para Honda, lo más importante es ir a Zandvoort con un motor decente para darle a Aston Martin más opciones de luchar regularmente por puntos.",
-      "tag": "Técnica",
-      "categoryLabel": "F1",
-      "category": "formula1",
-      "title": "Honda apuesta todo a Holanda.",
-      "date": "03/08/2026"
-    },
-    {
-      "views": 0,
       "image": "/content/uploads/sains.jpg",
       "category": "formula1",
       "categoryLabel": "F1",
@@ -28,6 +18,16 @@
       "title": "Franco Colapinto a la espera del Anuncio de Alpine",
       "image": "/content/uploads/franco.webp",
       "excerpt": "Con Alonso ya fuera de la ecuación y sin intención de dejar Aston Martin, Alpine tiene delante una decisión que en el papel debería ser sencilla: quedarse con Colapinto. El argentino llegó a la escudería con la vara alta después de su año en Williams, y lejos de achicarse, elevó el nivel. Todavía le queda pulir la consistencia, pero su margen de progresión y la buena relación que construyó con Flavio Briatore lo ponen en una posición que ningún otro candidato del mercado puede igualar hoy. Renovarlo no sería solo la opción más lógica — sería también la más rentable a largo plazo para un equipo que necesita previsibilidad en la butaca junto a Gasly.",
+      "date": "03/08/2026"
+    },
+    {
+      "views": 0,
+      "image": "/content/uploads/honda-hungria-dom-soymotor.jpg.jpg",
+      "category": "formula1",
+      "categoryLabel": "F1",
+      "tag": "Mejoras",
+      "title": "Honda apuesta todo a Holanda",
+      "excerpt": "¿Qué llevará mejorado Honda? Shintaro Orihara desveló que en esta actualización de motor han modificado la precámara de combustión, la cámara y la forma del pistón. Sí, son tres cosas, pero según el reglamento, están metidas en un mismo bloque, por lo que forman parte de un único token. Tienen dos a su disposición.\n\nAparte de toda la potencia que puedan ganar con el ADUO, pueden hacer todos los ajustes que vean necesarios para mejorar la fiabilidad. Y para Honda, lo más importante es ir a Zandvoort con un motor decente para darle a Aston Martin más opciones de luchar regularmente por puntos.",
       "date": "03/08/2026"
     }
   ]
