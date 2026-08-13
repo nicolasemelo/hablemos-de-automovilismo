@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: nicolasemelo/hablemos-de-automovilismo
   branch: main
 
 media_folder: "content/uploads"
@@ -43,9 +44,14 @@ collections:
               - label: "Título"
                 name: "title"
                 widget: "string"
-              - label: "Resumen / bajada"
+              - label: "Resumen / bajada (se muestra en la tarjeta)"
                 name: "excerpt"
                 widget: "text"
+              - label: "Texto completo de la nota (se muestra al abrir la nota)"
+                name: "body"
+                widget: "text"
+                required: false
+                hint: "Si lo dejás vacío, se muestra el resumen de arriba como texto completo."
               - label: "Fecha (texto libre, ej. 'Hace 2 h' o '03 AGO 2026')"
                 name: "date"
                 widget: "string"
