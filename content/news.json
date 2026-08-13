@@ -1,54 +1,70 @@
 {
   "articles": [
     {
-      "views": 0,
       "image": "/content/uploads/sains.jpg",
       "category": "formula1",
       "categoryLabel": "F1",
       "tag": "Mercado de Pases",
       "title": "Sainz medita su futuro en la Fórmula 1... y fuera de ella",
       "excerpt": "El piloto madrileño afronta el parón de verano con la duda de saber dónde correrá la temporada que viene tras un duro inicio de año. Mientras tanto, Carlos ya parece tener claro cuál será su destino fuera de ella.\nA la Fórmula 1 le queda Carlos para rato, pero, aun así, el madrileño quiere emular a su compatriota Fernando Alonso y correr las 24 horas de Le Mans. O, al igual que Max Verstappen recientemente, dar el salto a los GT3.",
-      "date": "03/08/2026"
+      "body": "",
+      "date": "03/08/2026",
+      "views": 0
     },
     {
-      "views": 0,
+      "image": "/content/uploads/franco.webp",
       "category": "formula1",
       "categoryLabel": "F1",
       "tag": "Mercado de Pases",
       "title": "Franco Colapinto a la espera del Anuncio de Alpine",
-      "image": "/content/uploads/franco.webp",
       "excerpt": "Con Alonso ya fuera de la ecuación y sin intención de dejar Aston Martin, Alpine tiene delante una decisión que en el papel debería ser sencilla: quedarse con Colapinto. El argentino llegó a la escudería con la vara alta después de su año en Williams, y lejos de achicarse, elevó el nivel. Todavía le queda pulir la consistencia, pero su margen de progresión y la buena relación que construyó con Flavio Briatore lo ponen en una posición que ningún otro candidato del mercado puede igualar hoy. Renovarlo no sería solo la opción más lógica — sería también la más rentable a largo plazo para un equipo que necesita previsibilidad en la butaca junto a Gasly.",
-      "date": "03/08/2026"
+      "body": "",
+      "date": "03/08/2026",
+      "views": 0
     },
     {
-      "views": 0,
       "image": "/content/uploads/honda-hungria-dom-soymotor.jpg.jpg",
       "category": "formula1",
       "categoryLabel": "F1",
       "tag": "Mejoras",
       "title": "Honda apuesta todo a Holanda",
       "excerpt": "¿Qué llevará mejorado Honda? Shintaro Orihara desveló que en esta actualización de motor han modificado la precámara de combustión, la cámara y la forma del pistón. Sí, son tres cosas, pero según el reglamento, están metidas en un mismo bloque, por lo que forman parte de un único token. Tienen dos a su disposición. Aparte de toda la potencia que puedan ganar con el ADUO, pueden hacer todos los ajustes que vean necesarios para mejorar la fiabilidad. Y para Honda, lo más importante es ir a Zandvoort con un motor decente para darle a Aston Martin más opciones de luchar regularmente por puntos.",
-      "date": "03/08/2026"
+      "body": "",
+      "date": "03/08/2026",
+      "views": 0
     },
     {
-      "views": 0,
+      "image": "/content/uploads/oyvaoxzslndt7kygqn3plgamcm.avif",
       "category": "motogp",
       "categoryLabel": "MotoGP",
       "tag": "MUNDIAL",
       "title": "Martín lo lidera todo",
       "excerpt": "Jorge Martín se marchó al parón veraniego, que concluye el próximo fin de semana con el GP de Gran Bretaña, como actual líder del Mundial de MotoGP, pero también como el piloto con más caídas tras la disputa de once grandes premios. Con 16 arrastrones el que fuera campeón del mundo en 2024 lidera esta clasificación del ‘Trofeo Bayeta’. En segunda posición de este particular ranking se encuentra otro campeón de MotoGP, el español Joan Mir, con 15 caídas. Completa el podio con 13 el italiano, Franco Morbidelli. Por detrás, en la cuarta posición del Trofeo Bayeta empatan a 12 caídas, Marco Bezzecchi y Álex Márquez.",
+      "body": "",
       "date": "03/08/2026",
-      "image": "/content/uploads/oyvaoxzslndt7kygqn3plgamcm.avif"
+      "views": 0
     },
     {
-      "views": 0,
+      "image": "/content/uploads/hyqtytekcjfltgl2f2l3qbtega.avif",
       "category": "rally",
       "categoryLabel": "Rally",
       "tag": "ESTADISTICA",
       "title": "Francia supera a Finlandia en victorias en el Mundial",
       "excerpt": "Los galos cuentan con 215 triunfos frente a los 200 que sumó Pajari el pasado fin de semana para los nórdicos. España es quinta en el ranking con 30.\nParece que los finlandeses son los reyes del Mundial de Rallys y resulta que no. La potencia con más victorias y títulos en la especialidad de los tramos cronometrados es Francia. El pasado fin de semana Sami Pajari sumaba el triunfo 200 para Finlandia, pero los galos cuentan en la actualidad con 215.",
+      "body": "",
       "date": "03/08/2026",
-      "image": "/content/uploads/hyqtytekcjfltgl2f2l3qbtega.avif"
+      "views": 0
+    },
+    {
+      "image": "/content/uploads/jefe-equipo-cadillac-soymotor.jpg.webp",
+      "category": "formula1",
+      "categoryLabel": "F1",
+      "tag": "Team Manager",
+      "title": "OFICIAL: Marcin Budkowski sustituye a Graeme Lowdon como jefe del equipo",
+      "excerpt": "El ingeniero polaco, uno de los veteranos de la F1, asume el mando del equipo estadounidense\nDan Towriss agradece el compromiso de Lowdon y le desea lo mejor para el futuro",
+      "body": "Cadillac ha decidido cambiar una de las piezas principales de su estructura directiva en plena temporada de debut en la Fórmula 1. La agrupación ha anunciado el nombramiento de Marcin Budkowski como nuevo jefe del equipo, en sustitución de Graeme Lowdon, que había liderado el proyecto durante su construcción y su llegada al campeonato.\nEl relevo se produce en un momento significativo para Cadillac. La escudería ya ha dejado atrás la fase puramente fundacional y afronta ahora una etapa diferente: convertir toda la estructura levantada durante los últimos años en un equipo capaz de mejorar su rendimiento en pista de forma sostenida.\n\nBudkowski llega con más de dos décadas de experiencia en la Fórmula 1 y una trayectoria que combina el apartado técnico y la gestión deportiva como tal. Es un veterano de la competición, sobre todo por su paso de un cargo técnico en la FIA/F1 a un puesto directivo en Renault. Para ser exactos, ha pasado por Prost, Ferrari y McLaren, además de desempeñar responsabilidades dentro de la FIA y ocupar posteriormente puestos de máxima responsabilidad en Renault y Alpine. \nSu experiencia precisamente en la estructura francesa resulta especialmente relevante. Allí participó en la transición de la estructura de Renault hacia la nueva identidad del equipo francés y llegó a ejercer como director ejecutivo y miembro de su consejo de administración. Se marchó de Alpine en una de las tantas reorganizaciones que se produjeron en Enstone, pero seguía en el paddock como analista. \n\nAhora afronta un proyecto completamente diferente, aunque con una misión similar en un aspecto: transformar una organización en construcción en una estructura competitiva y funcional.\nEl cambio llega después de una primera mitad de temporada en la que Cadillac ha tenido que aprender a funcionar como una escudería de Fórmula 1 mientras compite contra estructuras con décadas de experiencia. La prioridad de Budkowski será ahora ordenar ese aprendizaje y convertirlo en procesos que permitan ganar rendimiento, tal y como lo han reverenciado en el comunicado que han emitido esta tarde a los medios de comunicación.\n\nEl propio equipo define el cambio como una transición planificada, desde la fase inicial de construcción hacia una etapa centrada en el rendimiento. No se trata, por tanto, de una reacción puntual a los resultados –algo que en verdad carecería de sentido en estos momentos–, sino de un movimiento vinculado a la evolución natural del proyecto.\nEn ese contexto, Lowdon cierra su etapa al frente del equipo después de haber desempeñado un papel fundamental en su nacimiento. El ejecutivo fue una de las figuras encargadas de levantar la estructura desde cero y acompañarla hasta su entrada efectiva en el campeonato.\n\n\"Agradecemos a Graeme Lowdon su liderazgo y el papel que desempeñó en la creación del equipo Cadillac de Fórmula 1 desde cero\", ha dicho el director ejecutivo del equipo, Dan Towriss.\n\n\"Sus aportaciones ayudaron a sentar unas bases sólidas en nuestra fase de puesta en marcha, y le agradecemos su compromiso y le deseamos lo mejor\", ha puntualizado, dejando entrever la salida de Lowdon.",
+      "date": "12/08/2026",
+      "views": 0
     }
   ]
 }
