@@ -106,17 +106,25 @@
 <div class="sub-hero">
   <h1>Últimos resultados</h1>
   <p>Resumen de la carrera más reciente del campeonato.</p>
-  <span class="updated">Ronda 10 de 22 · Temporada 2026</span>
+  <span class="updated" id="updatedLabel">Cargando...</span>
 </div>
-<div class="result-highlight">
-  <div class="gp-title">Gran Premio de Bélgica</div>
-  <div class="podium">
-    <div class="podium-item"><span class="p">P1</span><span><span class="n">Kimi Antonelli</span><span class="t">Mercedes</span></span></div>
-    <div class="podium-item"><span class="p">P2</span><span><span class="n">—</span><span class="t">Por confirmar</span></span></div>
-    <div class="podium-item"><span class="p">P3</span><span><span class="n">—</span><span class="t">Por confirmar</span></span></div>
-  </div>
-</div>
-<p style="color:var(--text-dim); font-size:0.88rem;">Con esta victoria, Antonelli extendió su ventaja al frente del Campeonato de Pilotos. Consultá el detalle completo en la sección <a href="pilotos.html" style="color:var(--blue); font-weight:600;">Pilotos</a>.</p>
+<div id="resultContainer"><p style="color:var(--text-faint);">Cargando resultados...</p></div>
+<script>
+  fetch('content/standings.json').then(r => r.json()).then(data => {
+    document.getElementById('updatedLabel').textContent = data.updated || '';
+    const race = data.lastRace || {};
+    const podiumHTML = (race.podium || []).map(p =>
+      `<div class="podium-item"><span class="p">${p.pos}</span>${p.photo ? `<img class="photo" src="${p.photo}" alt="${p.name}">` : ''}<span><span class="n">${p.name}</span><span class="t">${p.team}</span></span></div>`
+    ).join('');
+    document.getElementById('resultContainer').innerHTML = `
+      <div class="result-highlight">
+        <div class="gp-title">${race.name || ''}</div>
+        <div class="podium">${podiumHTML}</div>
+      </div>
+      <p style="color:var(--text-dim); font-size:0.88rem;">${race.note || ''} Consultá el detalle completo en la sección <a href="pilotos.html" style="color:var(--blue); font-weight:600;">Pilotos</a>.</p>
+    `;
+  }).catch(() => { document.getElementById('resultContainer').innerHTML = '<p>No se pudieron cargar los datos.</p>'; });
+</script>
 </div></div>
 <footer>
   <div class="wrap">

@@ -361,3 +361,16 @@
 .podium-item .p{ font-family:'Oswald',sans-serif; font-weight:700; font-size:1.3rem; color:var(--amber-dark); width:2rem; }
 .podium-item .n{ font-weight:700; font-size:0.9rem; }
 .podium-item .t{ font-size:0.76rem; color:var(--text-dim); display:block; }
+
+/* ---------- FOTOS EN TABLAS Y PODIO ---------- */
+.standings-table .driver-photo{
+  width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0;
+  border:1px solid var(--border-strong);
+}
+.standings-table .name-cell{ display:flex; align-items:center; gap:0.6rem; }
+.standings-table .team-logo{ width:22px; height:22px; object-fit:contain; flex-shrink:0; }
+.standings-table .team-cell{ display:flex; align-items:center; gap:0.5rem; }
+.podium-item .photo{
+  width:44px; height:44px; border-radius:50%; object-fit:cover; flex-shrink:0;
+  border:2px solid var(--amber);
+}

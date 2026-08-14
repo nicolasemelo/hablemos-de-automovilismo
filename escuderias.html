@@ -105,23 +105,22 @@
 <div class="wrap"><div class="article-wrap">
 <div class="sub-hero">
   <h1>Campeonato de Constructores 2026</h1>
-  <p>Posiciones del Mundial de Constructores, calculadas a partir de los puntos sumados por ambos pilotos de cada equipo tras el Gran Premio de Bélgica (ronda 10 de 22).</p>
-  <span class="updated">Actualizado tras el GP de Bélgica 2026 · Valores aproximados</span>
+  <p>Posiciones del Mundial de Constructores.</p>
+  <span class="updated" id="updatedLabel">Cargando...</span>
 </div>
 <table class="standings-table">
   <thead><tr><th>Pos</th><th>Escudería</th><th style="text-align:right;">Puntos</th></tr></thead>
-  <tbody>
-    <tr><td class="pos">1</td><td class="name">Mercedes</td><td class="pts">379</td></tr>
-<tr><td class="pos">2</td><td class="name">Ferrari</td><td class="pts">307</td></tr>
-<tr><td class="pos">3</td><td class="name">McLaren</td><td class="pts">220</td></tr>
-<tr><td class="pos">4</td><td class="name">Red Bull</td><td class="pts">177</td></tr>
-<tr><td class="pos">5</td><td class="name">Racing Bulls</td><td class="pts">66</td></tr>
-<tr><td class="pos">6</td><td class="name">Alpine</td><td class="pts">61</td></tr>
-<tr><td class="pos">7</td><td class="name">Haas</td><td class="pts">21</td></tr>
-<tr><td class="pos">8</td><td class="name">Williams</td><td class="pts">11</td></tr>
-<tr><td class="pos">9</td><td class="name">Audi</td><td class="pts">10</td></tr>
-  </tbody>
+  <tbody id="teamsBody"><tr><td colspan="3" style="color:var(--text-faint);">Cargando posiciones...</td></tr></tbody>
 </table>
+<script>
+  fetch('content/standings.json').then(r => r.json()).then(data => {
+    document.getElementById('updatedLabel').textContent = data.updated || '';
+    const teams = (data.teams || []).slice().sort((a,b) => (b.points||0) - (a.points||0));
+    document.getElementById('teamsBody').innerHTML = teams.map((t,i) =>
+      `<tr><td class="pos">${i+1}</td><td><div class="team-cell">${t.logo ? `<img class="team-logo" src="${t.logo}" alt="${t.name}">` : ''}<span class="name">${t.name}</span></div></td><td class="pts">${t.points}</td></tr>`
+    ).join('');
+  }).catch(() => { document.getElementById('teamsBody').innerHTML = '<tr><td colspan="3">No se pudieron cargar los datos.</td></tr>'; });
+</script>
 </div></div>
 <footer>
   <div class="wrap">
