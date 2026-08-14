@@ -160,57 +160,57 @@
     {
       "name": "Mercedes",
       "points": 379,
-      "logo": ""
+      "logo": "/content/uploads/mercedes.png"
     },
     {
       "name": "Ferrari",
       "points": 307,
-      "logo": ""
+      "logo": "/content/uploads/ferrari.jpg"
     },
     {
       "name": "McLaren",
       "points": 220,
-      "logo": ""
+      "logo": "/content/uploads/mclaren.png"
     },
     {
       "name": "Red Bull",
       "points": 177,
-      "logo": ""
+      "logo": "/content/uploads/redbull.jpg"
     },
     {
       "name": "Racing Bulls",
       "points": 66,
-      "logo": ""
+      "logo": "/content/uploads/racing.jpg"
     },
     {
       "name": "Alpine",
       "points": 61,
-      "logo": "/content/uploads/franco.webp"
+      "logo": "/content/uploads/alpine.png"
     },
     {
       "name": "Haas",
       "points": 21,
-      "logo": ""
+      "logo": "/content/uploads/hass.png"
     },
     {
       "name": "Williams",
       "points": 11,
-      "logo": "/content/uploads/sains.jpg"
+      "logo": "/content/uploads/williams.png"
     },
     {
       "name": "Audi",
       "points": 10,
-      "logo": ""
+      "logo": "/content/uploads/audi.png"
     },
     {
       "name": "Aston Martin",
       "points": 1,
-      "logo": "/content/uploads/honda-hungria-dom-soymotor.jpg.jpg"
+      "logo": "/content/uploads/aston.jpg"
     },
     {
       "name": "Cadillac",
       "points": 0,
-      "logo": ""
+      "logo": "/content/uploads/cadillac.png"
     }
   ],
   "calendar": [
