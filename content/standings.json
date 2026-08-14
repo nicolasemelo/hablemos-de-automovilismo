@@ -119,6 +119,41 @@
       "team": "Haas",
       "points": 3,
       "photo": ""
+    },
+    {
+      "pos": 18,
+      "name": "Nico Hulkenberg",
+      "team": "Audi",
+      "points": 2,
+      "photo": ""
+    },
+    {
+      "pos": 19,
+      "name": "Fernando Alonso",
+      "team": "Aston Martin",
+      "points": 1,
+      "photo": ""
+    },
+    {
+      "pos": 20,
+      "name": "Lance Stroll",
+      "team": "Aston Martin",
+      "points": 0,
+      "photo": ""
+    },
+    {
+      "pos": 21,
+      "name": "Sergio Perez",
+      "team": "Cadillac",
+      "points": 0,
+      "photo": ""
+    },
+    {
+      "pos": 22,
+      "name": "Valteri Bottas",
+      "team": "Cadillac",
+      "points": 0,
+      "photo": ""
     }
   ],
   "teams": [
