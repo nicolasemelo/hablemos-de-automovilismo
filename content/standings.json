@@ -34,126 +34,126 @@
       "name": "Lando Norris",
       "team": "McLaren",
       "points": 128,
-      "photo": ""
+      "photo": "/content/uploads/lando.jpg"
     },
     {
       "pos": 6,
       "name": "Max Verstappen",
       "team": "Red Bull",
       "points": 109,
-      "photo": ""
+      "photo": "/content/uploads/max.jpg"
     },
     {
       "pos": 7,
       "name": "Oscar Piastri",
       "team": "McLaren",
       "points": 92,
-      "photo": ""
+      "photo": "/content/uploads/oscar.jpg"
     },
     {
       "pos": 8,
       "name": "Isack Hadjar",
       "team": "Red Bull",
       "points": 68,
-      "photo": ""
+      "photo": "/content/uploads/isack.jpg"
     },
     {
       "pos": 9,
       "name": "Liam Lawson",
       "team": "Racing Bulls",
       "points": 43,
-      "photo": ""
+      "photo": "/content/uploads/lawson.jpg"
     },
     {
       "pos": 10,
       "name": "Pierre Gasly",
       "team": "Alpine",
       "points": 42,
-      "photo": ""
+      "photo": "/content/uploads/gasly.jpg"
     },
     {
       "pos": 11,
       "name": "Arvid Lindblad",
       "team": "Racing Bulls",
       "points": 23,
-      "photo": ""
+      "photo": "/content/uploads/arvid.jpg"
     },
     {
       "pos": 12,
       "name": "Franco Colapinto",
       "team": "Alpine",
       "points": 19,
-      "photo": ""
+      "photo": "/content/uploads/franco.jpg"
     },
     {
       "pos": 13,
       "name": "Oliver Bearman",
       "team": "Haas",
       "points": 18,
-      "photo": ""
+      "photo": "/content/uploads/bear.jpg"
     },
     {
       "pos": 14,
       "name": "Gabriel Bortoleto",
       "team": "Audi",
       "points": 10,
-      "photo": ""
+      "photo": "/content/uploads/bortoleto.jpg"
     },
     {
       "pos": 15,
       "name": "Carlos Sainz",
       "team": "Williams",
       "points": 6,
-      "photo": ""
+      "photo": "/content/uploads/sainz.jpg"
     },
     {
       "pos": 16,
       "name": "Alexander Albon",
       "team": "Williams",
       "points": 5,
-      "photo": ""
+      "photo": "/content/uploads/albon.jpg"
     },
     {
       "pos": 17,
       "name": "Esteban Ocon",
       "team": "Haas",
       "points": 3,
-      "photo": ""
+      "photo": "/content/uploads/ocon.jpg"
     },
     {
       "pos": 18,
       "name": "Nico Hulkenberg",
       "team": "Audi",
       "points": 2,
-      "photo": ""
+      "photo": "/content/uploads/nico.jpg"
     },
     {
       "pos": 19,
       "name": "Fernando Alonso",
       "team": "Aston Martin",
       "points": 1,
-      "photo": ""
+      "photo": "/content/uploads/nano.jpg"
     },
     {
       "pos": 20,
       "name": "Lance Stroll",
       "team": "Aston Martin",
       "points": 0,
-      "photo": ""
+      "photo": "/content/uploads/lance.jpg"
     },
     {
       "pos": 21,
       "name": "Sergio Perez",
       "team": "Cadillac",
       "points": 0,
-      "photo": ""
+      "photo": "/content/uploads/checo.jpg"
     },
     {
       "pos": 22,
       "name": "Valteri Bottas",
       "team": "Cadillac",
       "points": 0,
-      "photo": ""
+      "photo": "/content/uploads/bottas.jpg"
     }
   ],
   "teams": [
