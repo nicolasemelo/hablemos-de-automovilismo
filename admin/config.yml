@@ -60,3 +60,55 @@ collections:
                 widget: "number"
                 default: 0
                 required: false
+
+  - name: "standings"
+    label: "Fórmula 1 — Posiciones"
+    files:
+      - file: "content/standings.json"
+        label: "Pilotos, Escuderías, Calendario y Resultados"
+        name: "standings"
+        fields:
+          - label: "Texto de 'Actualizado' (aparece arriba de cada tabla)"
+            name: "updated"
+            widget: "string"
+          - label: "Pilotos"
+            name: "drivers"
+            widget: "list"
+            summary: "{{fields.pos}}. {{fields.name}} — {{fields.points}} pts"
+            fields:
+              - { label: "Posición", name: "pos", widget: "number" }
+              - { label: "Nombre del piloto", name: "name", widget: "string" }
+              - { label: "Escudería", name: "team", widget: "string" }
+              - { label: "Puntos", name: "points", widget: "number" }
+              - { label: "Foto del piloto", name: "photo", widget: "image", required: false }
+          - label: "Escuderías"
+            name: "teams"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.points}} pts"
+            fields:
+              - { label: "Nombre de la escudería", name: "name", widget: "string" }
+              - { label: "Puntos", name: "points", widget: "number" }
+              - { label: "Logo de la escudería", name: "logo", widget: "image", required: false }
+          - label: "Calendario"
+            name: "calendar"
+            widget: "list"
+            summary: "Ronda {{fields.round}} — {{fields.name}}"
+            fields:
+              - { label: "Número de ronda", name: "round", widget: "number" }
+              - { label: "Nombre del Gran Premio", name: "name", widget: "string" }
+              - { label: "¿Ya se corrió?", name: "done", widget: "boolean", default: false }
+          - label: "Último resultado (Resultados)"
+            name: "lastRace"
+            widget: "object"
+            fields:
+              - { label: "Nombre del Gran Premio", name: "name", widget: "string" }
+              - label: "Podio"
+                name: "podium"
+                widget: "list"
+                summary: "{{fields.pos}} — {{fields.name}}"
+                fields:
+                  - { label: "Posición (ej. P1)", name: "pos", widget: "string" }
+                  - { label: "Piloto", name: "name", widget: "string" }
+                  - { label: "Escudería", name: "team", widget: "string", required: false }
+                  - { label: "Foto del piloto", name: "photo", widget: "image", required: false }
+              - { label: "Nota / comentario debajo del podio", name: "note", widget: "text", required: false }
