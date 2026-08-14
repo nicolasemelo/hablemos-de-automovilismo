@@ -1,0 +1,302 @@
+{
+  "updated": "Actualizado tras el GP de Bélgica 2026 (ronda 10 de 22)",
+  "drivers": [
+    {
+      "pos": 1,
+      "name": "Andrea Kimi Antonelli",
+      "team": "Mercedes",
+      "points": 219,
+      "photo": ""
+    },
+    {
+      "pos": 2,
+      "name": "Lewis Hamilton",
+      "team": "Ferrari",
+      "points": 169,
+      "photo": ""
+    },
+    {
+      "pos": 3,
+      "name": "George Russell",
+      "team": "Mercedes",
+      "points": 160,
+      "photo": ""
+    },
+    {
+      "pos": 4,
+      "name": "Charles Leclerc",
+      "team": "Ferrari",
+      "points": 138,
+      "photo": ""
+    },
+    {
+      "pos": 5,
+      "name": "Lando Norris",
+      "team": "McLaren",
+      "points": 128,
+      "photo": ""
+    },
+    {
+      "pos": 6,
+      "name": "Max Verstappen",
+      "team": "Red Bull",
+      "points": 109,
+      "photo": ""
+    },
+    {
+      "pos": 7,
+      "name": "Oscar Piastri",
+      "team": "McLaren",
+      "points": 92,
+      "photo": ""
+    },
+    {
+      "pos": 8,
+      "name": "Isack Hadjar",
+      "team": "Red Bull",
+      "points": 68,
+      "photo": ""
+    },
+    {
+      "pos": 9,
+      "name": "Liam Lawson",
+      "team": "Racing Bulls",
+      "points": 43,
+      "photo": ""
+    },
+    {
+      "pos": 10,
+      "name": "Pierre Gasly",
+      "team": "Alpine",
+      "points": 42,
+      "photo": ""
+    },
+    {
+      "pos": 11,
+      "name": "Arvid Lindblad",
+      "team": "Racing Bulls",
+      "points": 23,
+      "photo": ""
+    },
+    {
+      "pos": 12,
+      "name": "Franco Colapinto",
+      "team": "Alpine",
+      "points": 19,
+      "photo": ""
+    },
+    {
+      "pos": 13,
+      "name": "Oliver Bearman",
+      "team": "Haas",
+      "points": 18,
+      "photo": ""
+    },
+    {
+      "pos": 14,
+      "name": "Gabriel Bortoleto",
+      "team": "Audi",
+      "points": 10,
+      "photo": ""
+    },
+    {
+      "pos": 15,
+      "name": "Carlos Sainz",
+      "team": "Williams",
+      "points": 6,
+      "photo": ""
+    },
+    {
+      "pos": 16,
+      "name": "Alexander Albon",
+      "team": "Williams",
+      "points": 5,
+      "photo": ""
+    },
+    {
+      "pos": 17,
+      "name": "Esteban Ocon",
+      "team": "Haas",
+      "points": 3,
+      "photo": ""
+    }
+  ],
+  "teams": [
+    {
+      "name": "Mercedes",
+      "points": 379,
+      "logo": ""
+    },
+    {
+      "name": "Ferrari",
+      "points": 307,
+      "logo": ""
+    },
+    {
+      "name": "McLaren",
+      "points": 220,
+      "logo": ""
+    },
+    {
+      "name": "Red Bull",
+      "points": 177,
+      "logo": ""
+    },
+    {
+      "name": "Racing Bulls",
+      "points": 66,
+      "logo": ""
+    },
+    {
+      "name": "Alpine",
+      "points": 61,
+      "logo": ""
+    },
+    {
+      "name": "Haas",
+      "points": 21,
+      "logo": ""
+    },
+    {
+      "name": "Williams",
+      "points": 11,
+      "logo": ""
+    },
+    {
+      "name": "Audi",
+      "points": 10,
+      "logo": ""
+    }
+  ],
+  "calendar": [
+    {
+      "round": 1,
+      "name": "Gran Premio de Australia",
+      "done": true
+    },
+    {
+      "round": 2,
+      "name": "Gran Premio de China",
+      "done": true
+    },
+    {
+      "round": 3,
+      "name": "Gran Premio de Japón",
+      "done": true
+    },
+    {
+      "round": 4,
+      "name": "Gran Premio de Miami",
+      "done": true
+    },
+    {
+      "round": 5,
+      "name": "Gran Premio de Canadá",
+      "done": true
+    },
+    {
+      "round": 6,
+      "name": "Gran Premio de Mónaco",
+      "done": true
+    },
+    {
+      "round": 7,
+      "name": "Gran Premio de Barcelona-Catalunya",
+      "done": true
+    },
+    {
+      "round": 8,
+      "name": "Gran Premio de Austria",
+      "done": true
+    },
+    {
+      "round": 9,
+      "name": "Gran Premio de Gran Bretaña",
+      "done": true
+    },
+    {
+      "round": 10,
+      "name": "Gran Premio de Bélgica",
+      "done": true
+    },
+    {
+      "round": 11,
+      "name": "Gran Premio de Hungría",
+      "done": false
+    },
+    {
+      "round": 12,
+      "name": "Gran Premio de los Países Bajos",
+      "done": false
+    },
+    {
+      "round": 13,
+      "name": "Gran Premio de Italia",
+      "done": false
+    },
+    {
+      "round": 14,
+      "name": "Gran Premio de Madrid (España)",
+      "done": false
+    },
+    {
+      "round": 15,
+      "name": "Gran Premio de Azerbaiyán",
+      "done": false
+    },
+    {
+      "round": 16,
+      "name": "Gran Premio de Singapur",
+      "done": false
+    },
+    {
+      "round": 17,
+      "name": "Gran Premio de Estados Unidos",
+      "done": false
+    },
+    {
+      "round": 18,
+      "name": "Gran Premio de México",
+      "done": false
+    },
+    {
+      "round": 19,
+      "name": "Gran Premio de São Paulo",
+      "done": false
+    },
+    {
+      "round": 20,
+      "name": "Gran Premio de Las Vegas",
+      "done": false
+    },
+    {
+      "round": 21,
+      "name": "Gran Premio de Catar",
+      "done": false
+    }
+  ],
+  "lastRace": {
+    "name": "Gran Premio de Bélgica",
+    "podium": [
+      {
+        "pos": "P1",
+        "name": "Kimi Antonelli",
+        "team": "Mercedes",
+        "photo": ""
+      },
+      {
+        "pos": "P2",
+        "name": "Por confirmar",
+        "team": "",
+        "photo": ""
+      },
+      {
+        "pos": "P3",
+        "name": "Por confirmar",
+        "team": "",
+        "photo": ""
+      }
+    ],
+    "note": "Con esta victoria, Antonelli extendió su ventaja al frente del Campeonato de Pilotos."
+  }
+}
