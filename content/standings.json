@@ -150,7 +150,7 @@
     {
       "name": "Alpine",
       "points": 61,
-      "logo": ""
+      "logo": "/content/uploads/franco.webp"
     },
     {
       "name": "Haas",
@@ -160,11 +160,21 @@
     {
       "name": "Williams",
       "points": 11,
-      "logo": ""
+      "logo": "/content/uploads/sains.jpg"
     },
     {
       "name": "Audi",
       "points": 10,
+      "logo": ""
+    },
+    {
+      "name": "Aston Martin",
+      "points": 1,
+      "logo": "/content/uploads/honda-hungria-dom-soymotor.jpg.jpg"
+    },
+    {
+      "name": "Cadillac",
+      "points": 0,
       "logo": ""
     }
   ],
