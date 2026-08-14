@@ -6,28 +6,28 @@
       "name": "Andrea Kimi Antonelli",
       "team": "Mercedes",
       "points": 219,
-      "photo": ""
+      "photo": "/content/uploads/kimi.png"
     },
     {
       "pos": 2,
       "name": "Lewis Hamilton",
       "team": "Ferrari",
       "points": 169,
-      "photo": ""
+      "photo": "/content/uploads/lweis.jpg"
     },
     {
       "pos": 3,
       "name": "George Russell",
       "team": "Mercedes",
       "points": 160,
-      "photo": ""
+      "photo": "/content/uploads/george.png"
     },
     {
       "pos": 4,
       "name": "Charles Leclerc",
       "team": "Ferrari",
       "points": 138,
-      "photo": ""
+      "photo": "/content/uploads/charles.jpg"
     },
     {
       "pos": 5,
