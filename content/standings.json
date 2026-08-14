@@ -286,27 +286,27 @@
     }
   ],
   "lastRace": {
-    "name": "Gran Premio de Bélgica",
+    "name": "Gran Premio de Hungria",
     "podium": [
       {
         "pos": "P1",
-        "name": "Kimi Antonelli",
-        "team": "Mercedes",
+        "name": "Lando Norris",
+        "team": "Mclaren",
         "photo": ""
       },
       {
         "pos": "P2",
-        "name": "Por confirmar",
-        "team": "",
+        "name": "Max Verstappen",
+        "team": "Red Bull",
         "photo": ""
       },
       {
         "pos": "P3",
-        "name": "Por confirmar",
-        "team": "",
+        "name": "Kimi Antonelli",
+        "team": "Mercedes",
         "photo": ""
       }
     ],
-    "note": "Con esta victoria, Antonelli extendió su ventaja al frente del Campeonato de Pilotos."
+    "note": "Primera Victoria de Mclaren y Lando Norris en 2026"
   }
 }
