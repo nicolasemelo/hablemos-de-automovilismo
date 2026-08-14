@@ -319,3 +319,45 @@
 .article-body{ font-size:1.02rem; line-height:1.75; color:var(--text); }
 .article-body p{ margin-bottom:1.1rem; }
 .article-notfound{ text-align:center; padding:4rem 1rem; color:var(--text-dim); }
+
+/* ---------- SUBPÁGINAS (Pilotos / Escuderías / Calendario / Resultados) ---------- */
+.sub-hero{ margin-bottom:1.6rem; }
+.sub-hero h1{ font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(1.6rem,3.5vw,2.2rem); color:var(--text); margin-bottom:0.4rem; }
+.sub-hero p{ font-size:0.9rem; color:var(--text-dim); max-width:60ch; }
+.sub-hero .updated{ font-size:0.72rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.03em; margin-top:0.5rem; display:block; }
+
+.standings-table{ width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); }
+.standings-table th{
+  text-align:left; font-family:'Oswald',sans-serif; font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase;
+  color:var(--text-faint); padding:0.7rem 0.9rem; border-bottom:1px solid var(--border-strong); background:var(--bg);
+}
+.standings-table td{ padding:0.7rem 0.9rem; border-bottom:1px solid var(--border); font-size:0.88rem; color:var(--text); }
+.standings-table tr:last-child td{ border-bottom:none; }
+.standings-table .pos{ font-family:'Oswald',sans-serif; font-weight:700; color:var(--text-faint); width:2.5rem; }
+.standings-table .name{ font-weight:700; }
+.standings-table .team{ color:var(--text-dim); font-size:0.8rem; }
+.standings-table .pts{ font-family:'Oswald',sans-serif; font-weight:700; color:var(--blue); text-align:right; }
+.standings-table tr:nth-child(1) .pos{ color:var(--amber-dark); }
+
+.cal-list{ display:flex; flex-direction:column; border:1px solid var(--border); background:var(--surface); }
+.cal-row{ display:flex; align-items:center; gap:1rem; padding:0.8rem 1rem; border-bottom:1px solid var(--border); }
+.cal-row:last-child{ border-bottom:none; }
+.cal-row.done{ background:var(--bg); }
+.cal-row .round{ font-family:'Oswald',sans-serif; font-weight:700; color:var(--text-faint); width:2.2rem; flex-shrink:0; }
+.cal-row .gp-name{ flex:1; font-weight:600; font-size:0.88rem; }
+.cal-row .status{
+  font-family:'Oswald',sans-serif; font-size:0.62rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;
+  padding:0.25rem 0.55rem; flex-shrink:0;
+}
+.cal-row.done .status{ background:var(--green); color:#fff; }
+.cal-row.pending .status{ background:var(--border); color:var(--text-dim); }
+
+.result-highlight{
+  background:var(--surface); border:1px solid var(--border); padding:1.4rem; margin-bottom:1.6rem;
+}
+.result-highlight .gp-title{ font-family:'Oswald',sans-serif; font-weight:600; font-size:1.1rem; text-transform:uppercase; letter-spacing:0.02em; color:var(--blue); margin-bottom:0.8rem; }
+.podium{ display:flex; gap:1rem; flex-wrap:wrap; }
+.podium-item{ display:flex; align-items:center; gap:0.6rem; }
+.podium-item .p{ font-family:'Oswald',sans-serif; font-weight:700; font-size:1.3rem; color:var(--amber-dark); width:2rem; }
+.podium-item .n{ font-weight:700; font-size:0.9rem; }
+.podium-item .t{ font-size:0.76rem; color:var(--text-dim); display:block; }
