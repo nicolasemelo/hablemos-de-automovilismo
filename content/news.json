@@ -1,17 +1,6 @@
 {
   "articles": [
     {
-      "image": "/content/uploads/HQJYdAqXAAAHVFi.jpg",
-      "category": "formula1",
-      "categoryLabel": "F1",
-      "tag": "Mercado de Pases",
-      "title": "Max hasta 2030 con Redbull.",
-      "excerpt": "MAX VERSTAPPEN 🇳🇱 CONTINUARÁ EN #RedBull HASTA 2030.\n\n🔥 De cara a su última home race, el tetracampeón del mundo firmó su continuidad por cuatro temporadas más.",
-      "body": "El futuro de Max Verstappen era una de las grandes incógnitas de esta 'Silly Season'. El tetracampeón ha sido uno de los pilotos más críticos con la nueva era de monoplazas y su decepción le hizo plantearse su continuidad en la categoría reina del automovilismo. Por otro lado, estaban los problemas de rendimiento de Red Bull. El RB22 no le ha permitido hasta ahora luchar por estar arriba y eso también ha incrementado en muchas ocasiones su decepción esta temporada y la tensión en el seno del equipo.\n\nTodo ello, le ha hecho explorar nuevas posibilidades en su carrera deportiva, tanto dentro como fuera de la F1, pues su contrato contaba con una cláusula de salida si no llegaba al parón de verano en el 'top 2' del Mundial. Tanteó Mercedes y también McLaren, sin éxito aparente. Y, finalmente, su futuro continuará vinculado a la Fórmula 1 y a Red Bull en las próximas cuatro temporadas, hasta 2030.",
-      "date": "20/08/2026",
-      "views": 0
-    },
-    {
       "image": "/content/uploads/sains.jpg",
       "category": "formula1",
       "categoryLabel": "F1",
@@ -75,6 +64,17 @@
       "excerpt": "El ingeniero polaco, uno de los veteranos de la F1, asume el mando del equipo estadounidense\nDan Towriss agradece el compromiso de Lowdon y le desea lo mejor para el futuro",
       "body": "Cadillac ha decidido cambiar una de las piezas principales de su estructura directiva en plena temporada de debut en la Fórmula 1. La agrupación ha anunciado el nombramiento de Marcin Budkowski como nuevo jefe del equipo, en sustitución de Graeme Lowdon, que había liderado el proyecto durante su construcción y su llegada al campeonato.\nEl relevo se produce en un momento significativo para Cadillac. La escudería ya ha dejado atrás la fase puramente fundacional y afronta ahora una etapa diferente: convertir toda la estructura levantada durante los últimos años en un equipo capaz de mejorar su rendimiento en pista de forma sostenida.\n\nBudkowski llega con más de dos décadas de experiencia en la Fórmula 1 y una trayectoria que combina el apartado técnico y la gestión deportiva como tal. Es un veterano de la competición, sobre todo por su paso de un cargo técnico en la FIA/F1 a un puesto directivo en Renault. Para ser exactos, ha pasado por Prost, Ferrari y McLaren, además de desempeñar responsabilidades dentro de la FIA y ocupar posteriormente puestos de máxima responsabilidad en Renault y Alpine. \nSu experiencia precisamente en la estructura francesa resulta especialmente relevante. Allí participó en la transición de la estructura de Renault hacia la nueva identidad del equipo francés y llegó a ejercer como director ejecutivo y miembro de su consejo de administración. Se marchó de Alpine en una de las tantas reorganizaciones que se produjeron en Enstone, pero seguía en el paddock como analista. \n\nAhora afronta un proyecto completamente diferente, aunque con una misión similar en un aspecto: transformar una organización en construcción en una estructura competitiva y funcional.\nEl cambio llega después de una primera mitad de temporada en la que Cadillac ha tenido que aprender a funcionar como una escudería de Fórmula 1 mientras compite contra estructuras con décadas de experiencia. La prioridad de Budkowski será ahora ordenar ese aprendizaje y convertirlo en procesos que permitan ganar rendimiento, tal y como lo han reverenciado en el comunicado que han emitido esta tarde a los medios de comunicación.\n\nEl propio equipo define el cambio como una transición planificada, desde la fase inicial de construcción hacia una etapa centrada en el rendimiento. No se trata, por tanto, de una reacción puntual a los resultados –algo que en verdad carecería de sentido en estos momentos–, sino de un movimiento vinculado a la evolución natural del proyecto.\nEn ese contexto, Lowdon cierra su etapa al frente del equipo después de haber desempeñado un papel fundamental en su nacimiento. El ejecutivo fue una de las figuras encargadas de levantar la estructura desde cero y acompañarla hasta su entrada efectiva en el campeonato.\n\n\"Agradecemos a Graeme Lowdon su liderazgo y el papel que desempeñó en la creación del equipo Cadillac de Fórmula 1 desde cero\", ha dicho el director ejecutivo del equipo, Dan Towriss.\n\n\"Sus aportaciones ayudaron a sentar unas bases sólidas en nuestra fase de puesta en marcha, y le agradecemos su compromiso y le deseamos lo mejor\", ha puntualizado, dejando entrever la salida de Lowdon.",
       "date": "12/08/2026",
+      "views": 0
+    },
+    {
+      "image": "/content/uploads/HQJYdAqXAAAHVFi.jpg",
+      "category": "formula1",
+      "categoryLabel": "F1",
+      "tag": "Mercado de Pases",
+      "title": "Max hasta 2030 con Redbull.",
+      "excerpt": "MAX VERSTAPPEN 🇳🇱 CONTINUARÁ EN #RedBull HASTA 2030.\n\n🔥 De cara a su última home race, el tetracampeón del mundo firmó su continuidad por cuatro temporadas más.",
+      "body": "El futuro de Max Verstappen era una de las grandes incógnitas de esta 'Silly Season'. El tetracampeón ha sido uno de los pilotos más críticos con la nueva era de monoplazas y su decepción le hizo plantearse su continuidad en la categoría reina del automovilismo. Por otro lado, estaban los problemas de rendimiento de Red Bull. El RB22 no le ha permitido hasta ahora luchar por estar arriba y eso también ha incrementado en muchas ocasiones su decepción esta temporada y la tensión en el seno del equipo.\n\nTodo ello, le ha hecho explorar nuevas posibilidades en su carrera deportiva, tanto dentro como fuera de la F1, pues su contrato contaba con una cláusula de salida si no llegaba al parón de verano en el 'top 2' del Mundial. Tanteó Mercedes y también McLaren, sin éxito aparente. Y, finalmente, su futuro continuará vinculado a la Fórmula 1 y a Red Bull en las próximas cuatro temporadas, hasta 2030.",
+      "date": "20/08/2026",
       "views": 0
     }
   ]
